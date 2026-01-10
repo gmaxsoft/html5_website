@@ -105,6 +105,33 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './index.html',
       filename: 'index.html',
+      chunks: ['main'],
+    }),
+    // News detail pages
+    new HtmlWebpackPlugin({
+      template: './news-restauracja.html',
+      filename: 'news-restauracja.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './news-spa.html',
+      filename: 'news-spa.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './news-atrakcje.html',
+      filename: 'news-atrakcje.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './news-zakwaterowanie.html',
+      filename: 'news-zakwaterowanie.html',
+      chunks: ['main'],
+    }),
+    new HtmlWebpackPlugin({
+      template: './news-wellness.html',
+      filename: 'news-wellness.html',
+      chunks: ['main'],
     }),
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',

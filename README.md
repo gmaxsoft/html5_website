@@ -292,3 +292,4 @@ W przypadku pytań lub problemów, proszę o kontakt przez repozytorium GitHub.
 
 **Uwaga:** Pamiętaj, aby uruchomić `npm install` przed pierwszym użyciem projektu!
 
+
