@@ -31,6 +31,13 @@ module.exports = {
     hot: true,
     open: true,
     historyApiFallback: true,
+    // Wycisz warningi w dev server
+    client: {
+      overlay: {
+        warnings: false,
+        errors: true,
+      },
+    },
   },
   module: {
     rules: [
@@ -54,6 +61,11 @@ module.exports = {
             options: {
               implementation: require('sass'),
               sourceMap: true,
+              // Wycisz deprecation warnings z zależności (np. Bootstrap)
+              sassOptions: {
+                quietDeps: true,
+                silenceDeprecations: ['legacy-js-api', 'import'],
+              },
             },
           },
         ],
@@ -199,6 +211,38 @@ module.exports = {
     hints: process.env.NODE_ENV === 'production' ? 'warning' : false,
     maxEntrypointSize: 512000,
     maxAssetSize: 512000,
+  },
+  // Wycisz warningi z zależności (np. Bootstrap deprecation warnings)
+  ignoreWarnings: [
+    // Wszystkie deprecation warnings z node_modules
+    {
+      module: /node_modules/,
+      message: /deprecated/i,
+    },
+    // Wszystkie warningi z Bootstrap
+    {
+      module: /node_modules\/bootstrap/,
+    },
+    // Sass deprecation warnings
+    /Sass.*deprecation/i,
+    /@import.*deprecated/i,
+    // Bootstrap specific warnings
+    /bootstrap.*deprecated/i,
+    /legacy-js-api/i,
+    // QuietDeps warnings from Sass
+    /quietDeps/i,
+  ],
+  // Dodatkowe filtrowanie w stats (dla dev server)
+  stats: {
+    warningsFilter: [
+      /node_modules/,
+      /deprecated/i,
+      /bootstrap/i,
+      /Sass/i,
+      /@import/i,
+      /legacy/i,
+    ],
+    warnings: true, // Pokazuj tylko prawdziwe błędy, nie warningi z zależności
   },
 };
 
