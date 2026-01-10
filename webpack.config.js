@@ -232,7 +232,7 @@ module.exports = {
     // QuietDeps warnings from Sass
     /quietDeps/i,
   ],
-  // Dodatkowe filtrowanie w stats (dla dev server)
+  // Dodatkowe filtrowanie w stats (dla dev server) - wycisz wszystkie warningi z node_modules
   stats: {
     warningsFilter: [
       /node_modules/,
@@ -242,7 +242,6 @@ module.exports = {
       /@import/i,
       /legacy/i,
     ],
-    warnings: true, // Pokazuj tylko prawdziwe błędy, nie warningi z zależności
   },
 };
 
