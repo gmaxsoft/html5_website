@@ -509,6 +509,368 @@ textarea.form-control {
     min-height: 150px;
 }
 
+/* About Section */
+.about-section {
+    background: $white;
+    padding: 5rem 0;
+    width: 100%;
+    position: relative;
+    overflow: hidden;
+}
+
+.about-content-row {
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.about-text-col {
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    z-index: 1;
+}
+
+.about-text-content {
+    display: flex;
+    flex-direction: column;
+    gap: 2rem;
+    position: relative;
+}
+
+.about-title {
+    font-size: 3rem;
+    font-weight: 700;
+    color: $text-dark;
+    font-family: $font-serif;
+    margin-bottom: 2rem;
+    line-height: 1.3;
+}
+
+.about-text-wrapper {
+    display: flex;
+    gap: 1.5rem;
+    align-items: flex-start;
+}
+
+.about-decorative-element {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    flex-shrink: 0;
+    margin-top: 0.5rem;
+}
+
+.gold-diamond {
+    width: 12px;
+    height: 12px;
+    background: $gold;
+    transform: rotate(45deg);
+    margin-bottom: 8px;
+    flex-shrink: 0;
+}
+
+.gold-line {
+    width: 2px;
+    height: 80px;
+    background: $gold;
+    flex-shrink: 0;
+}
+
+.about-paragraphs {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    flex: 1;
+}
+
+.about-paragraph {
+    font-size: 1rem;
+    color: $text-light;
+    font-family: $font-sans;
+    line-height: 1.8;
+    margin: 0;
+}
+
+.about-cta {
+    margin-top: 2rem;
+}
+
+.about-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: $text-dark;
+    color: $white;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: $font-sans;
+    border: 2px solid $text-dark;
+    border-radius: 4px;
+    
+    &:hover {
+        background: $gold;
+        color: $text-dark;
+        border-color: $gold;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.about-map-outline {
+    position: absolute;
+    bottom: -50px;
+    left: -100px;
+    width: 400px;
+    height: 300px;
+    background-image: url("data:image/svg+xml,%3Csvg width='400' height='300' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M50 100 L100 80 L150 90 L200 70 L250 85 L300 75 L350 95 L380 100 L370 150 L350 200 L300 220 L250 210 L200 230 L150 215 L100 225 L50 200 Z' fill='none' stroke='%23e0e0e0' stroke-width='1' opacity='0.3'/%3E%3C/svg%3E");
+    background-repeat: no-repeat;
+    background-size: contain;
+    opacity: 0.2;
+    z-index: 0;
+    pointer-events: none;
+}
+
+.about-images-col {
+    position: relative;
+    height: 600px;
+}
+
+.about-images-wrapper {
+    position: relative;
+    width: 100%;
+    height: 100%;
+}
+
+.about-main-image {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 85%;
+    height: 75%;
+    z-index: 1;
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    border: 4px solid $white;
+    overflow: hidden;
+    border-radius: 4px;
+}
+
+.about-overlay-image-top {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 50%;
+    height: 40%;
+    z-index: 2;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: 4px solid $white;
+    overflow: hidden;
+    border-radius: 4px;
+    transform: translate(10%, -10%);
+}
+
+.about-overlay-image-bottom {
+    position: absolute;
+    bottom: 10%;
+    left: 0;
+    width: 50%;
+    height: 40%;
+    z-index: 3;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.2);
+    border: 4px solid $white;
+    overflow: hidden;
+    border-radius: 4px;
+    transform: translate(-10%, 10%);
+}
+
+.about-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    display: block;
+}
+
+// Responsive styles for About Section
+@media (max-width: 1200px) {
+    .about-title {
+        font-size: 2.5rem;
+    }
+    
+    .about-images-col {
+        height: 500px;
+    }
+}
+
+@media (max-width: 991px) {
+    .about-section {
+        padding: 3rem 0;
+    }
+    
+    .about-title {
+        font-size: 2rem;
+    }
+    
+    .about-content-row {
+        gap: 3rem;
+    }
+    
+    .about-text-wrapper {
+        flex-direction: column;
+        gap: 1rem;
+    }
+    
+    .about-decorative-element {
+        flex-direction: row;
+        align-items: center;
+        margin-top: 0;
+    }
+    
+    .gold-diamond {
+        margin-bottom: 0;
+        margin-right: 12px;
+    }
+    
+    .gold-line {
+        width: 80px;
+        height: 2px;
+    }
+    
+    .about-paragraphs {
+        gap: 1rem;
+    }
+    
+    .about-paragraph {
+        font-size: 0.9375rem;
+    }
+    
+    .about-images-col {
+        height: 500px;
+    }
+    
+    .about-main-image {
+        width: 80%;
+        height: 70%;
+    }
+    
+    .about-overlay-image-top {
+        width: 45%;
+        height: 35%;
+    }
+    
+    .about-overlay-image-bottom {
+        width: 45%;
+        height: 35%;
+    }
+}
+
+@media (max-width: 767px) {
+    .about-title {
+        font-size: 1.75rem;
+    }
+    
+    .about-content-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .about-text-col {
+        order: 1;
+    }
+    
+    .about-images-col {
+        order: 2;
+        height: 400px;
+    }
+    
+    .about-text-content {
+        gap: 1.5rem;
+    }
+    
+    .about-paragraph {
+        font-size: 0.875rem;
+    }
+    
+    .about-cta {
+        margin-top: 1.5rem;
+    }
+    
+    .about-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+        font-size: 0.8125rem;
+    }
+    
+    .about-map-outline {
+        display: none; // Hide on mobile for better layout
+    }
+    
+    .about-main-image {
+        width: 75%;
+        height: 65%;
+    }
+    
+    .about-overlay-image-top {
+        width: 40%;
+        height: 30%;
+        transform: translate(5%, -5%);
+    }
+    
+    .about-overlay-image-bottom {
+        width: 40%;
+        height: 30%;
+        transform: translate(-5%, 5%);
+    }
+}
+
+@media (max-width: 575px) {
+    .about-section {
+        padding: 2rem 0;
+    }
+    
+    .about-title {
+        font-size: 1.5rem;
+    }
+    
+    .about-text-content {
+        gap: 1rem;
+    }
+    
+    .about-paragraphs {
+        gap: 0.75rem;
+    }
+    
+    .about-paragraph {
+        font-size: 0.8125rem;
+    }
+    
+    .about-cta {
+        margin-top: 1rem;
+    }
+    
+    .about-images-col {
+        height: 350px;
+    }
+    
+    .about-main-image {
+        width: 70%;
+        height: 60%;
+    }
+    
+    .about-overlay-image-top {
+        width: 35%;
+        height: 25%;
+    }
+    
+    .about-overlay-image-bottom {
+        width: 35%;
+        height: 25%;
+    }
+}
+
 /* Holiday Homes Section */
 .holiday-homes-section {
     background: $white;
