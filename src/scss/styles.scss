@@ -509,6 +509,411 @@ textarea.form-control {
     min-height: 150px;
 }
 
+/* Specifications Section */
+.specifications-section {
+    background: $white;
+    padding: 5rem 0;
+    width: 100%;
+}
+
+.specifications-header {
+    text-align: center;
+    margin-bottom: 3rem;
+}
+
+.specifications-title {
+    font-size: 3.5rem;
+    font-weight: 700;
+    color: $text-dark;
+    font-family: $font-serif;
+    margin-bottom: 1rem;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+}
+
+.specifications-subtitle {
+    font-size: 1rem;
+    color: $text-light;
+    font-family: $font-sans;
+    font-style: italic;
+    letter-spacing: 1px;
+}
+
+.specifications-tabs-wrapper {
+    margin-top: 3rem;
+    margin-bottom: 3rem;
+}
+
+.specifications-tabs {
+    border-bottom: 2px solid rgba(0, 0, 0, 0.1);
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+
+    .nav-item {
+        margin-bottom: -2px;
+    }
+
+    .nav-link {
+        color: $text-dark;
+        border: none;
+        border-bottom: 3px solid transparent;
+        padding: 0.75rem 1.5rem;
+        transition: all 0.3s ease;
+        font-weight: 600;
+        font-size: 1rem;
+        text-transform: uppercase;
+        letter-spacing: 1px;
+        position: relative;
+        background: transparent;
+        margin-right: 0.5rem;
+
+        &:hover {
+            color: $text-dark;
+            background: rgba(0, 0, 0, 0.05);
+            border-bottom-color: rgba(0, 0, 0, 0.2);
+        }
+
+        &.active {
+            color: $text-dark;
+            background: rgba(0, 0, 0, 0.1);
+            border-bottom-color: $text-dark;
+        }
+    }
+}
+
+.specifications-tab-content {
+    margin-top: 3rem;
+    
+    .tab-pane {
+        animation: fadeIn 0.4s ease-in-out;
+    }
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.specifications-content-row {
+    align-items: flex-start;
+    gap: 3rem;
+}
+
+.specifications-text-column {
+    display: flex;
+    flex-direction: column;
+    gap: 2.5rem;
+}
+
+.specifications-description {
+    p {
+        font-size: 1rem;
+        color: $text-light;
+        font-family: $font-sans;
+        line-height: 1.8;
+        margin: 0;
+    }
+}
+
+.specifications-list {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.spec-item {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-bottom: 1rem;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    
+    &:last-child {
+        border-bottom: none;
+        padding-bottom: 0;
+    }
+}
+
+.spec-label {
+    font-size: 1rem;
+    color: $text-dark;
+    font-family: $font-sans;
+    font-weight: 500;
+}
+
+.spec-value {
+    font-size: 1.125rem;
+    color: $text-dark;
+    font-family: $font-serif;
+    font-weight: 700;
+}
+
+.specifications-cta {
+    margin-top: 1rem;
+}
+
+.specifications-btn {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem 2.5rem;
+    background: $text-dark;
+    color: $gold;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+    font-family: $font-sans;
+    border: 2px solid $text-dark;
+    
+    &:hover {
+        background: $gold;
+        color: $text-dark;
+        border-color: $gold;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.specifications-image-column {
+    display: flex;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.specifications-image-container {
+    width: 100%;
+    max-width: 100%;
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    background: $white;
+}
+
+.specifications-floor-plan {
+    width: 100%;
+    height: auto;
+    display: block;
+    transition: opacity 0.3s ease;
+}
+
+.specifications-video-column {
+    width: 100%;
+}
+
+.specifications-video-container {
+    width: 100%;
+    margin-top: 2rem;
+}
+
+.specifications-video-placeholder {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%; // 16:9 aspect ratio
+    height: 0;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    
+    iframe {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+}
+
+// Responsive styles for Specifications Section
+@media (max-width: 1200px) {
+    .specifications-title {
+        font-size: 3rem;
+    }
+    
+    .specifications-tabs .nav-link {
+        padding: 0.625rem 1.25rem;
+        font-size: 0.9375rem;
+    }
+}
+
+@media (max-width: 991px) {
+    .specifications-section {
+        padding: 3rem 0;
+    }
+    
+    .specifications-title {
+        font-size: 2.5rem;
+    }
+    
+    .specifications-subtitle {
+        font-size: 0.875rem;
+    }
+    
+    .specifications-tabs-wrapper {
+        margin-top: 2rem;
+        margin-bottom: 2rem;
+    }
+    
+    .specifications-tabs {
+        gap: 0.5rem;
+        
+        .nav-link {
+            padding: 0.5rem 1rem;
+            font-size: 0.875rem;
+        }
+    }
+    
+    .specifications-content-row {
+        gap: 2rem;
+    }
+    
+    .specifications-text-column {
+        gap: 2rem;
+    }
+    
+    .specifications-description p {
+        font-size: 0.9375rem;
+    }
+    
+    .spec-label {
+        font-size: 0.9375rem;
+    }
+    
+    .spec-value {
+        font-size: 1rem;
+    }
+    
+    .specifications-btn {
+        padding: 0.875rem 2rem;
+        font-size: 0.8125rem;
+    }
+}
+
+@media (max-width: 767px) {
+    .specifications-title {
+        font-size: 2rem;
+    }
+    
+    .specifications-subtitle {
+        font-size: 0.8125rem;
+    }
+    
+    .specifications-tabs {
+        flex-direction: column;
+        gap: 0.5rem;
+        
+        .nav-item {
+            width: 100%;
+            margin-bottom: 0;
+        }
+        
+        .nav-link {
+            width: 100%;
+            text-align: center;
+            padding: 0.75rem 1rem;
+            font-size: 0.875rem;
+            border-bottom: none;
+            border-left: 3px solid transparent;
+            
+            &.active {
+                border-left-color: $text-dark;
+                border-bottom-color: transparent;
+            }
+            
+            &:hover {
+                border-left-color: rgba(0, 0, 0, 0.2);
+                border-bottom-color: transparent;
+            }
+        }
+    }
+    
+    .specifications-content-row {
+        flex-direction: column;
+        gap: 2rem;
+    }
+    
+    .specifications-text-column {
+        order: 2;
+    }
+    
+    .specifications-image-column {
+        order: 1;
+    }
+    
+    .specifications-description p {
+        font-size: 0.875rem;
+    }
+    
+    .spec-item {
+        padding-bottom: 0.75rem;
+    }
+    
+    .spec-label {
+        font-size: 0.875rem;
+    }
+    
+    .spec-value {
+        font-size: 0.9375rem;
+    }
+    
+    .specifications-btn {
+        width: 100%;
+        padding: 0.875rem 1.5rem;
+    }
+    
+    .specifications-video-placeholder {
+        padding-bottom: 56.25%;
+    }
+}
+
+@media (max-width: 575px) {
+    .specifications-section {
+        padding: 2rem 0;
+    }
+    
+    .specifications-title {
+        font-size: 1.75rem;
+    }
+    
+    .specifications-subtitle {
+        font-size: 0.75rem;
+    }
+    
+    .specifications-tabs-wrapper {
+        margin-top: 1.5rem;
+        margin-bottom: 1.5rem;
+    }
+    
+    .specifications-tab-content {
+        margin-top: 2rem;
+    }
+    
+    .specifications-text-column {
+        gap: 1.5rem;
+    }
+    
+    .specifications-list {
+        gap: 1rem;
+    }
+    
+    .spec-item {
+        flex-direction: column;
+        align-items: flex-start;
+        gap: 0.5rem;
+        padding-bottom: 1rem;
+        border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+    }
+}
+
 /* Attractions Section */
 .attractions-section {
     background: $dark-grey;

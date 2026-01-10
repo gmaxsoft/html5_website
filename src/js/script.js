@@ -25,6 +25,56 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
     
+    // Specifications Tabs - Handle content and image changes
+    const specificationsTabContainer = document.getElementById('specificationsTabs');
+    if (specificationsTabContainer) {
+        specificationsTabContainer.addEventListener('shown.bs.tab', (event) => {
+            const targetId = event.target.getAttribute('data-bs-target');
+            if (targetId) {
+                handleSpecificationsTabChange(targetId);
+            }
+        });
+    }
+    
+    // Handle Specifications Tab Changes - Smooth transitions for content and images
+    function handleSpecificationsTabChange(targetId) {
+        // Get all floor plan images
+        const allFloorPlans = document.querySelectorAll('.specifications-floor-plan');
+        
+        // Fade out all images
+        allFloorPlans.forEach(img => {
+            img.style.opacity = '0.5';
+            img.style.transition = 'opacity 0.3s ease';
+        });
+        
+        // Get the active tab pane to find corresponding image
+        const activePane = document.querySelector(targetId);
+        if (activePane) {
+            const activeImage = activePane.querySelector('.specifications-floor-plan');
+            if (activeImage) {
+                // Fade in the active image
+                setTimeout(() => {
+                    activeImage.style.opacity = '1';
+                }, 150);
+            }
+        }
+    }
+    
+    // Initialize first specifications tab image opacity
+    const firstSpecTabPane = document.querySelector('#parter-content');
+    if (firstSpecTabPane) {
+        const firstSpecImage = firstSpecTabPane.querySelector('.specifications-floor-plan');
+        if (firstSpecImage) {
+            firstSpecImage.style.opacity = '1';
+        }
+    }
+    
+    // Set initial opacity for other specifications images
+    const otherSpecImages = document.querySelectorAll('.specifications-floor-plan:not(#parter-plan)');
+    otherSpecImages.forEach(img => {
+        img.style.opacity = '0.5';
+    });
+    
     // Handle Restaurant Tab Changes - Change images and overlay content with smooth transition
     function handleRestaurantTabChange(targetId) {
         // Get the active tab ID (remove # if present)
