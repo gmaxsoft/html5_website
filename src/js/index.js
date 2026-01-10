@@ -11,6 +11,18 @@ window.bootstrap = {
 // Import Font Awesome CSS
 import '@fortawesome/fontawesome-free/css/all.min.css';
 
+// Import Swiper CSS
+import 'swiper/css';
+import 'swiper/css/pagination';
+
+// Import Swiper and modules for script.js
+import Swiper from 'swiper';
+import { Pagination, Autoplay } from 'swiper/modules';
+
+// Make Swiper available globally for script.js
+window.Swiper = Swiper;
+window.SwiperModules = { Pagination, Autoplay };
+
 // Import SCSS
 import '../scss/styles.scss';
 

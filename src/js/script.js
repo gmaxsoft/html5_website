@@ -53,6 +53,58 @@ document.addEventListener('DOMContentLoaded', () => {
             });
         }
     });
+    
+    // Initialize Swiper for News Slider
+    if (typeof window.Swiper !== 'undefined' && window.SwiperModules) {
+        const { Pagination, Autoplay } = window.SwiperModules;
+        const Swiper = window.Swiper;
+        
+        const newsSliderEl = document.getElementById('newsSlider');
+        if (newsSliderEl) {
+            new Swiper('#newsSlider', {
+                // Configure Swiper to use modules
+                modules: [Pagination, Autoplay],
+                
+                // Optional parameters
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 30,
+                speed: 600,
+                
+                // Autoplay
+                autoplay: {
+                    delay: 5000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                
+                // Pagination
+                pagination: {
+                    el: '.swiper-pagination',
+                    clickable: true,
+                    dynamicBullets: false,
+                },
+                
+                // Responsive breakpoints
+                breakpoints: {
+                    0: {
+                        slidesPerView: 1,
+                        spaceBetween: 15,
+                    },
+                    768: {
+                        slidesPerView: 2,
+                        spaceBetween: 20,
+                    },
+                    992: {
+                        slidesPerView: 3,
+                        spaceBetween: 30,
+                    },
+                },
+            });
+        }
+    } else {
+        console.warn('Swiper not loaded properly');
+    }
 });
 
 // Mobile Menu Toggle
@@ -130,36 +182,37 @@ navLinks.forEach(link => {
     });
 });
 
-// Contact Form Handling
+// Contact Form Handling (for future use)
 const contactForm = document.getElementById('contactForm');
-
-contactForm.addEventListener('submit', (e) => {
-    e.preventDefault();
-    
-    // Get form values
-    const name = document.getElementById('name').value;
-    const email = document.getElementById('email').value;
-    const message = document.getElementById('message').value;
-    
-    // Simple validation
-    if (!name || !email || !message) {
-        alert('Proszę wypełnić wszystkie pola formularza.');
-        return;
-    }
-    
-    // Email validation
-    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
-    if (!emailRegex.test(email)) {
-        alert('Proszę podać poprawny adres email.');
-        return;
-    }
-    
-    // Simulate form submission
-    alert(`Dziękujemy za wiadomość, ${name}! Skontaktujemy się z Tobą wkrótce na adres ${email}.`);
-    
-    // Reset form
-    contactForm.reset();
-});
+if (contactForm) {
+    contactForm.addEventListener('submit', (e) => {
+        e.preventDefault();
+        
+        // Get form values
+        const name = document.getElementById('name')?.value;
+        const email = document.getElementById('email')?.value;
+        const message = document.getElementById('message')?.value;
+        
+        // Simple validation
+        if (!name || !email || !message) {
+            alert('Proszę wypełnić wszystkie pola formularza.');
+            return;
+        }
+        
+        // Email validation
+        const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
+        if (!emailRegex.test(email)) {
+            alert('Proszę podać poprawny adres email.');
+            return;
+        }
+        
+        // Simulate form submission
+        alert(`Dziękujemy za wiadomość, ${name}! Skontaktujemy się z Tobą wkrótce na adres ${email}.`);
+        
+        // Reset form
+        contactForm.reset();
+    });
+}
 
 // Scroll animations
 const observerOptions = {
@@ -176,9 +229,9 @@ const observer = new IntersectionObserver((entries) => {
     });
 }, observerOptions);
 
-// Observe elements for animation
+// Observe elements for animation (for future use)
 document.addEventListener('DOMContentLoaded', () => {
-    const animateElements = document.querySelectorAll('.about-card, .service-card, .portfolio-item');
+    const animateElements = document.querySelectorAll('.service-card, .news-card');
     
     animateElements.forEach(el => {
         el.style.opacity = '0';
@@ -188,48 +241,27 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 });
 
-// Hero buttons functionality
-const heroButtons = document.querySelectorAll('.hero-buttons .btn');
-
-heroButtons.forEach((button, index) => {
-    button.addEventListener('click', () => {
-        if (index === 0) {
-            // "Zacznij Teraz" button
-            const contactSection = document.querySelector('#contact');
-            if (contactSection) {
-                const offsetTop = contactSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        } else if (index === 1) {
-            // "Dowiedz Się Więcej" button
-            const aboutSection = document.querySelector('#about');
-            if (aboutSection) {
-                const offsetTop = aboutSection.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        }
-    });
-});
-
-// Portfolio item interactions
-const portfolioItems = document.querySelectorAll('.portfolio-item');
-
-portfolioItems.forEach(item => {
-    const btnView = item.querySelector('.btn-view');
+// News card button interactions (for future detail pages)
+document.addEventListener('DOMContentLoaded', () => {
+    const newsButtons = document.querySelectorAll('.news-btn');
     
-    if (btnView) {
-        btnView.addEventListener('click', (e) => {
-            e.stopPropagation();
-            const projectTitle = item.querySelector('h3').textContent;
-            alert(`Otwieranie projektu: ${projectTitle}`);
+    newsButtons.forEach(button => {
+        button.addEventListener('click', (e) => {
+            e.preventDefault();
+            const href = button.getAttribute('href');
+            // For now, just scroll or show alert - can be replaced with actual navigation later
+            if (href && href.startsWith('#')) {
+                const targetSection = document.querySelector(href);
+                if (targetSection) {
+                    const offsetTop = targetSection.offsetTop - 80;
+                    window.scrollTo({
+                        top: offsetTop,
+                        behavior: 'smooth'
+                    });
+                }
+            }
         });
-    }
+    });
 });
 
 // Add scroll-to-top functionality (optional enhancement)
