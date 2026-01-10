@@ -3540,3 +3540,168 @@ html {
 .service-card {
     animation: fadeInUp 0.6s ease-out;
 }
+
+/* 404 Error Page Styles */
+.error-404-section {
+    padding: 100px 0;
+    background: linear-gradient(135deg, #1a1a1a 0%, #2d2d2d 100%);
+    min-height: 70vh;
+    display: flex;
+    align-items: center;
+}
+
+.error-404-content {
+    color: $white;
+}
+
+.error-code {
+    font-size: 150px;
+    font-weight: 700;
+    margin-bottom: 20px;
+    color: $gold;
+    line-height: 1;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+    
+    @media (max-width: 768px) {
+        font-size: 100px;
+    }
+}
+
+.error-title {
+    font-size: 36px;
+    font-weight: 600;
+    margin-bottom: 20px;
+    color: $white;
+    
+    @media (max-width: 768px) {
+        font-size: 28px;
+    }
+}
+
+.error-description {
+    font-size: 18px;
+    margin-bottom: 40px;
+    color: rgba(255, 255, 255, 0.8);
+    line-height: 1.6;
+    
+    @media (max-width: 768px) {
+        font-size: 16px;
+    }
+}
+
+.error-actions {
+    display: flex;
+    gap: 20px;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-bottom: 40px;
+}
+
+.error-btn {
+    display: inline-block;
+    padding: 15px 40px;
+    background: $gold;
+    color: $dark-grey;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    &:hover {
+        background: darken($gold, 10%);
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        color: $dark-grey;
+        text-decoration: none;
+    }
+    
+    i {
+        margin-right: 8px;
+    }
+    
+    @media (max-width: 768px) {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+.error-btn-secondary {
+    display: inline-block;
+    padding: 15px 40px;
+    background: transparent;
+    color: $gold;
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 16px;
+    border-radius: 5px;
+    border: 2px solid $gold;
+    transition: all 0.3s ease;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    &:hover {
+        background: $gold;
+        color: $dark-grey;
+        transform: translateY(-2px);
+        box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        text-decoration: none;
+    }
+    
+    i {
+        margin-right: 8px;
+    }
+    
+    @media (max-width: 768px) {
+        padding: 12px 30px;
+        font-size: 14px;
+    }
+}
+
+.error-suggestions {
+    margin-top: 60px;
+    padding-top: 40px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+    
+    h3 {
+        font-size: 24px;
+        margin-bottom: 30px;
+        color: $gold;
+        
+        @media (max-width: 768px) {
+            font-size: 20px;
+        }
+    }
+}
+
+.suggestions-links {
+    display: flex;
+    gap: 30px;
+    justify-content: center;
+    flex-wrap: wrap;
+    
+    a {
+        color: rgba(255, 255, 255, 0.8);
+        text-decoration: none;
+        font-size: 16px;
+        transition: color 0.3s ease;
+        padding: 10px 20px;
+        
+        &:hover {
+            color: $gold;
+            text-decoration: none;
+        }
+        
+        i {
+            margin-right: 8px;
+            color: $gold;
+        }
+        
+        @media (max-width: 768px) {
+            font-size: 14px;
+            padding: 8px 15px;
+        }
+    }
+}

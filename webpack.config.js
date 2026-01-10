@@ -30,7 +30,18 @@ module.exports = {
     port: 9000,
     hot: true,
     open: true,
-    historyApiFallback: true,
+    historyApiFallback: {
+      // Przekieruj nieistniejące strony na 404.html
+      // Webpack Dev Server automatycznie obsługuje istniejące pliki HTML z HtmlWebpackPlugin
+      // Dla nieistniejących ścieżek przekieruj na 404.html
+      // Uwaga: To działa tylko dla nieistniejących ścieżek - istniejące pliki HTML są obsługiwane automatycznie
+      index: 'index.html',
+      rewrites: [
+        // Przekieruj wszystkie nieistniejące ścieżki (które nie są plikami statycznymi) na 404.html
+        // Pliki statyczne (obrazy, CSS, JS, fonty) mają rozszerzenia i nie są przekierowywane
+        { from: /^(?!.*\.).*$/, to: '/404.html' }
+      ]
+    },
     // Wycisz warningi w dev server
     client: {
       overlay: {
@@ -179,6 +190,12 @@ module.exports = {
     new HtmlWebpackPlugin({
       template: './kontakt.html',
       filename: 'kontakt.html',
+      chunks: ['main'],
+    }),
+    // 404 Error Page
+    new HtmlWebpackPlugin({
+      template: './404.html',
+      filename: '404.html',
       chunks: ['main'],
     }),
     new MiniCssExtractPlugin({
