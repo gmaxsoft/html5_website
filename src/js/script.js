@@ -167,6 +167,40 @@ document.addEventListener('DOMContentLoaded', () => {
         const { Pagination, Autoplay } = window.SwiperModules;
         const Swiper = window.Swiper;
         
+        // Hero Slider (Full-screen hero section)
+        const heroSliderEl = document.getElementById('heroSlider');
+        if (heroSliderEl) {
+            const { EffectFade } = window.SwiperModules;
+            new Swiper('#heroSlider', {
+                // Configure Swiper to use modules
+                modules: [Pagination, Autoplay, EffectFade],
+                
+                // Optional parameters
+                loop: true,
+                slidesPerView: 1,
+                spaceBetween: 0,
+                speed: 800,
+                effect: 'fade',
+                fadeEffect: {
+                    crossFade: true
+                },
+                
+                // Autoplay
+                autoplay: {
+                    delay: 6000,
+                    disableOnInteraction: false,
+                    pauseOnMouseEnter: true,
+                },
+                
+                // Pagination
+                pagination: {
+                    el: heroSliderEl.querySelector('.swiper-pagination'),
+                    clickable: true,
+                    dynamicBullets: false,
+                },
+            });
+        }
+        
         // News Slider
         const newsSliderEl = document.getElementById('newsSlider');
         if (newsSliderEl) {

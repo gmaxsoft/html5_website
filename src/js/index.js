@@ -14,14 +14,15 @@ import '@fortawesome/fontawesome-free/css/all.min.css';
 // Import Swiper CSS
 import 'swiper/css';
 import 'swiper/css/pagination';
+import 'swiper/css/effect-fade';
 
 // Import Swiper and modules for script.js
 import Swiper from 'swiper';
-import { Pagination, Autoplay } from 'swiper/modules';
+import { Pagination, Autoplay, EffectFade } from 'swiper/modules';
 
 // Make Swiper available globally for script.js
 window.Swiper = Swiper;
-window.SwiperModules = { Pagination, Autoplay };
+window.SwiperModules = { Pagination, Autoplay, EffectFade };
 
 // Import SCSS
 import '../scss/styles.scss';
