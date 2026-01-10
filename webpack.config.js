@@ -1,9 +1,28 @@
+const fs = require('fs');
 const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 const MiniCssExtractPlugin = require('mini-css-extract-plugin');
 const CopyWebpackPlugin = require('copy-webpack-plugin');
 const TerserPlugin = require('terser-webpack-plugin');
 const CssMinimizerPlugin = require('css-minimizer-webpack-plugin');
+
+// Funkcja skanująca katalog w poszukiwaniu plików HTML
+const generateHtmlPlugins = (templateDir) => {
+  // Odczytaj pliki w folderze
+  const templateFiles = fs.readdirSync(path.resolve(__dirname, templateDir));
+  
+  return templateFiles
+    .filter(item => item.endsWith('.html')) // Wybierz tylko pliki .html
+    .map(item => {
+      return new HtmlWebpackPlugin({
+        template: path.resolve(__dirname, templateDir, item),
+        filename: item,
+        chunks: ['main'], // Jeśli wszystkie strony mają używać tego samego bundle'a
+      });
+    });
+};
+
+const htmlPlugins = generateHtmlPlugins('.'); // Kropka, pliki są w głównym folderze
 
 module.exports = {
   entry: './src/js/index.js',
@@ -125,79 +144,7 @@ module.exports = {
     ],
   },
   plugins: [
-    new HtmlWebpackPlugin({
-      template: './index.html',
-      filename: 'index.html',
-      chunks: ['main'],
-    }),
-    // News detail pages
-    new HtmlWebpackPlugin({
-      template: './news-restauracja.html',
-      filename: 'news-restauracja.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './news-spa.html',
-      filename: 'news-spa.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './news-atrakcje.html',
-      filename: 'news-atrakcje.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './news-zakwaterowanie.html',
-      filename: 'news-zakwaterowanie.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './news-wellness.html',
-      filename: 'news-wellness.html',
-      chunks: ['main'],
-    }),
-    // Main pages
-    new HtmlWebpackPlugin({
-      template: './onas.html',
-      filename: 'onas.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './zakwaterowanie.html',
-      filename: 'zakwaterowanie.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './restauracja.html',
-      filename: 'restauracja.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './spa.html',
-      filename: 'spa.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './atrakcje.html',
-      filename: 'atrakcje.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './galeria.html',
-      filename: 'galeria.html',
-      chunks: ['main'],
-    }),
-    new HtmlWebpackPlugin({
-      template: './kontakt.html',
-      filename: 'kontakt.html',
-      chunks: ['main'],
-    }),
-    // 404 Error Page
-    new HtmlWebpackPlugin({
-      template: './404.html',
-      filename: '404.html',
-      chunks: ['main'],
-    }),
+    ...htmlPlugins,
     new MiniCssExtractPlugin({
       filename: 'css/[name].[contenthash].css',
     }),
