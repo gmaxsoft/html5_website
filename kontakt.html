@@ -177,38 +177,62 @@
                 <strong>Adres:</strong> Przełazy, Polska</p>
                 
                 <h2>Formularz Kontaktowy</h2>
-                <p>Wypełnij formularz kontaktowy, a my skontaktujemy się z Tobą tak szybko, jak to możliwe. Wszystkie pola są wymagane.</p>
+                <p>Wypełnij formularz kontaktowy, a my skontaktujemy się z Tobą tak szybko, jak to możliwe. Pola oznaczone * są wymagane.</p>
                 
-                <form id="contactForm" style="margin-top: 2rem; max-width: 800px;">
-                    <div class="row g-3">
+                <form id="contactForm" class="contact-form">
+                    <div class="row g-4">
                         <div class="col-md-6">
-                            <label for="contactName" class="form-label">Imię i Nazwisko *</label>
-                            <input type="text" class="form-control" id="contactName" name="name" required>
+                            <div class="form-group-wrapper">
+                                <label for="contactName" class="form-label">
+                                    <i class="fas fa-user"></i> Imię i Nazwisko <span class="required">*</span>
+                                </label>
+                                <input type="text" class="form-control" id="contactName" name="name" placeholder="Wpisz imię i nazwisko" required>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="contactEmail" class="form-label">Email *</label>
-                            <input type="email" class="form-control" id="contactEmail" name="email" required>
+                            <div class="form-group-wrapper">
+                                <label for="contactEmail" class="form-label">
+                                    <i class="fas fa-envelope"></i> Email <span class="required">*</span>
+                                </label>
+                                <input type="email" class="form-control" id="contactEmail" name="email" placeholder="twoj@email.pl" required>
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="contactPhone" class="form-label">Telefon</label>
-                            <input type="tel" class="form-control" id="contactPhone" name="phone">
+                            <div class="form-group-wrapper">
+                                <label for="contactPhone" class="form-label">
+                                    <i class="fas fa-phone"></i> Telefon
+                                </label>
+                                <input type="tel" class="form-control" id="contactPhone" name="phone" placeholder="+48 000 000 000">
+                            </div>
                         </div>
                         <div class="col-md-6">
-                            <label for="contactSubject" class="form-label">Temat *</label>
-                            <select class="form-control" id="contactSubject" name="subject" required>
-                                <option value="">Wybierz temat</option>
-                                <option value="rezerwacja">Rezerwacja</option>
-                                <option value="pytanie">Pytanie ogólne</option>
-                                <option value="oferta">Pytanie o ofertę</option>
-                                <option value="inne">Inne</option>
-                            </select>
+                            <div class="form-group-wrapper">
+                                <label for="contactSubject" class="form-label">
+                                    <i class="fas fa-tag"></i> Temat <span class="required">*</span>
+                                </label>
+                                <select class="form-control" id="contactSubject" name="subject" required>
+                                    <option value="">Wybierz temat</option>
+                                    <option value="rezerwacja">Rezerwacja</option>
+                                    <option value="pytanie">Pytanie ogólne</option>
+                                    <option value="oferta">Pytanie o ofertę</option>
+                                    <option value="inne">Inne</option>
+                                </select>
+                            </div>
                         </div>
                         <div class="col-12">
-                            <label for="contactMessage" class="form-label">Wiadomość *</label>
-                            <textarea class="form-control" id="contactMessage" name="message" rows="5" required></textarea>
+                            <div class="form-group-wrapper">
+                                <label for="contactMessage" class="form-label">
+                                    <i class="fas fa-comment-alt"></i> Wiadomość <span class="required">*</span>
+                                </label>
+                                <textarea class="form-control" id="contactMessage" name="message" rows="6" placeholder="Napisz swoją wiadomość..." required></textarea>
+                            </div>
                         </div>
                         <div class="col-12">
-                            <button type="submit" class="contact-btn" style="width: auto; padding: 1rem 2rem;">WYŚLIJ WIADOMOŚĆ</button>
+                            <div class="form-submit-wrapper">
+                                <button type="submit" class="contact-btn">
+                                    <i class="fas fa-paper-plane"></i> WYŚLIJ WIADOMOŚĆ
+                                </button>
+                            </div>
                         </div>
                     </div>
                 </form>
