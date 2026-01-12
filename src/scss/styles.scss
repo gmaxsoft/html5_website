@@ -2634,20 +2634,19 @@ textarea.form-control {
 
 .restaurant-overlay {
     position: absolute;
-    top: 50%;
-    left: 10%;
+    bottom:0;
+    left: 0;
     width: 100%;
     height: 100%;
     z-index: 2;
     pointer-events: none;
     display: flex;
     align-items: center;
-    transform: translateY(-50%);
 }
 
 .overlay-content {
     position: absolute;
-    bottom: 2rem;
+    top: 50%;
     left: 2rem;
     background: rgba(255, 255, 255, 0.95);
     padding: 2.5rem;
@@ -2655,16 +2654,17 @@ textarea.form-control {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s ease, opacity 0.4s ease;
+    transform: translateY(-50%);
 
     &:not(.active) {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(calc(-50% + 20px));
         pointer-events: none;
     }
 
     &.active {
         opacity: 1;
-        transform: translateY(0);
+        transform: translateY(-50%);
         pointer-events: auto;
     }
 }
