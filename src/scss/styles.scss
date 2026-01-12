@@ -2640,6 +2640,8 @@ textarea.form-control {
     height: 100%;
     z-index: 2;
     pointer-events: none;
+    display: flex;
+    align-items: center;
     transform: translateY(-50%);
 }
 
