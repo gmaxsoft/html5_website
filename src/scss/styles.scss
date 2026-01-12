@@ -31,6 +31,8 @@
     --white: #{$white};
     --light-grey: #{$light-grey};
     --text-dark: #{$text-dark};
+    --text-gold: #{$text-gold};
+    --text-gold-hover: #{$text-gold-hover};
     --text-light: #{$text-light};
     --text-white: #{$text-white};
     --shadow: #{$shadow};
@@ -47,14 +49,46 @@ body {
     padding: 0;
 }
 
-h1, h2, h3, h4, h5, h6 {
+a {
+    text-decoration: none;
+    -webkit-transition: .5s;
+    transition: .5s;
+    outline: 0;
+
+    &:hover {
+        text-decoration: none;
+        outline: 0
+    }
+
+    &:focus {
+        text-decoration: none;
+        outline: 0
+    }
+
+    &:active {
+        text-decoration: none;
+        outline: 0
+    }
+
+    &:visited {
+        text-decoration: none;
+        outline: 0
+    }
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
     font-family: $font-heading;
 }
 
 // Bootstrap container customization
 .container {
     max-width: $container-max-width;
-    
+
     // Larger container for big screens (>=1920px)
     @media (min-width: 1920px) {
         max-width: $container-max-width-lg;
@@ -63,27 +97,28 @@ h1, h2, h3, h4, h5, h6 {
 
 /* Top Bar (Utility Header) */
 .top-bar {
+    display: flex;
+    align-items: center;
+    min-height: 50px;
     background: $white;
     color: $text-dark;
-    padding: 1rem 0;
+    padding: 0;
     font-size: 0.875rem;
-    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.top-bar .container {
-    // Bootstrap Grid handles layout - row and col-* classes
 }
 
 .top-bar-left {
     display: flex;
+    text-align: left;
     align-items: center;
+    min-height: 50px;
+    float: left;
     gap: 1rem;
     padding: 0.25rem 0;
 }
 
 .top-bar-logo {
-    font-weight: 600;
-    font-size: 1rem;
+    font-weight: 400;
+    font-size: 0.9rem;
     font-family: $font-sans;
     color: $text-dark;
 }
@@ -91,14 +126,17 @@ h1, h2, h3, h4, h5, h6 {
 .top-bar-tagline {
     color: var(--text-light);
     font-size: 0.875rem;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .top-bar-right {
     display: flex;
+    text-align: right;
     align-items: center;
+    float: right;
     gap: 2.5rem;
     flex-wrap: wrap;
+    min-height: 50px;
 }
 
 .top-bar-item {
@@ -120,40 +158,58 @@ h1, h2, h3, h4, h5, h6 {
 .top-bar-item span {
     color: var(--text-dark);
     font-size: 0.875rem;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
+}
+
+.top-bar-item a {
+    color: var(--text-dark);
+    font-size: 0.875rem;
+    font-family: 'Roboto', sans-serif;
+
+    &:hover {
+        color: var(--text-gold);
+        transform: translateY(-2px);
+    }
 }
 
 /* Social Media Icons */
 .top-bar-social {
     display: flex;
+    float: left;
+    min-height: 50px;
+    text-align: left;
     align-items: center;
     gap: 1.25rem;
     margin-left: 1.5rem;
+    margin-left: 1.5rem;
     padding-left: 1.5rem;
-    border-left: 1px solid rgba(0, 0, 0, 0.1);
-}
-
-.social-icon {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    width: 32px;
-    height: 32px;
-    color: var(--text-dark);
-    text-decoration: none;
-    transition: all 0.3s ease;
-    border-radius: 50%;
-    font-size: 0.875rem;
-}
-
-.social-icon:hover {
+    padding-right: 1.5rem;
+    padding-top: 0.6rem;
+    padding-bottom: 0.6rem;
+    background: var(--dark-grey);
     color: var(--gold);
-    background: rgba(212, 175, 55, 0.1);
-    transform: translateY(-2px);
-}
 
-.social-icon i {
-    font-size: 0.875rem;
+    .social-icon {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        width: 32px;
+        height: 32px;
+        color: var(--text-gold);
+        text-decoration: none;
+        transition: all 0.3s ease;
+        border-radius: 50%;
+        font-size: 0.875rem;
+    }
+
+    .social-icon:hover {
+        color: var(--text-gold-hover);
+        transform: translateY(-2px);
+    }
+
+    .social-icon i {
+        font-size: 0.875rem;
+    }
 }
 
 /* Main Header & Navigation */
@@ -194,15 +250,15 @@ h1, h2, h3, h4, h5, h6 {
     height: auto;
     max-height: 80px;
     width: auto;
-    max-width: 350px;
+    max-width: 234px;
     display: block;
     object-fit: contain;
     transition: transform 0.3s ease;
-    
+
     // Responsywne skalowanie dla bardzo dużych ekranów
     @media (min-width: 1920px) {
         max-height: 100px;
-        max-width: 450px;
+        max-width: 250px;
     }
 }
 
@@ -221,24 +277,47 @@ h1, h2, h3, h4, h5, h6 {
 
 .nav-link {
     text-decoration: none;
+    outline: 0;
     color: var(--text-white);
     font-weight: 400;
-    font-size: 0.9375rem;
-    transition: color 0.3s ease;
+    font-size: 0.9rem;
+    -webkit-transition: .3s;
+    transition: .3s;
     position: relative;
-    font-family: 'Arial', sans-serif;
     display: flex;
     align-items: center;
+    text-transform: uppercase;
     gap: 0.25rem;
-}
 
-.nav-link:hover,
-.nav-link.active {
-    color: var(--gold);
+    &:focus {
+        outline: 0;
+        color: var(--gold);
+    }
+
+    &:hover {
+        outline: 0;
+        color: var(--gold);
+    }
+
+    &.active {
+        outline: 0;
+        color: var(--gold);
+    }
+
+    &:focus-visible {
+        outline: 0;
+        box-shadow: none !important;
+    }
 }
 
 .dropdown {
     position: relative;
+}
+
+.dropdown a {
+    color: var(--text-white);
+    display: block;
+    outline: 0 !important;
 }
 
 .dropdown-toggle {
@@ -249,6 +328,7 @@ h1, h2, h3, h4, h5, h6 {
     width: 12px;
     height: 12px;
     transition: transform 0.3s ease;
+    color: var(--text-white);
 }
 
 .dropdown:hover .dropdown-arrow,
@@ -258,13 +338,19 @@ h1, h2, h3, h4, h5, h6 {
 
 // Bootstrap Dropdown customization
 .dropdown-menu {
-    background: $dark-grey !important;
+    background: $white !important;
+    list-style: none;
     border: none !important;
     border-radius: 8px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.2) !important;
     padding: 0.5rem 0 !important;
     min-width: 200px;
-    
+    position: absolute;
+    text-transform: uppercase;
+    left: 0;
+    top: 100%;
+    z-index: 1000;
+
     // Hidden by default - override Bootstrap default behavior
     display: none !important;
     opacity: 0 !important;
@@ -272,7 +358,7 @@ h1, h2, h3, h4, h5, h6 {
     transform: translateY(-10px);
     transition: opacity 0.3s ease, visibility 0.3s ease, transform 0.3s ease;
     pointer-events: none;
-    
+
     // Show when Bootstrap adds .show class or when explicitly shown
     &.show {
         display: block !important;
@@ -285,6 +371,7 @@ h1, h2, h3, h4, h5, h6 {
 
 // Desktop: Show dropdown on hover (only for desktop > 968px)
 @media (min-width: 969px) {
+
     .dropdown:hover .dropdown-menu,
     .dropdown:focus-within .dropdown-menu {
         display: block !important;
@@ -293,7 +380,7 @@ h1, h2, h3, h4, h5, h6 {
         transform: translateY(0) !important;
         pointer-events: auto;
     }
-    
+
     // Keep dropdown visible when hovering over it
     .dropdown-menu:hover {
         display: block !important;
@@ -303,21 +390,19 @@ h1, h2, h3, h4, h5, h6 {
 }
 
 .dropdown-item {
-    color: $text-white;
-    padding: 0.75rem 1.5rem;
+    color: $text-dark !important;
+    padding: 1rem 1.5rem;
     font-size: 0.875rem;
     font-family: $font-sans;
     transition: all 0.3s ease;
-    
-    &:hover,
-    &:focus {
-        background: $dark-grey-hover;
+
+    &:hover {
         color: $gold;
         padding-left: 2rem;
     }
-    
+
     &.active {
-        background: $dark-grey-hover;
+        background: rgba(0, 0, 0, 0.05);
         color: $gold;
     }
 }
@@ -356,7 +441,7 @@ h1, h2, h3, h4, h5, h6 {
     color: var(--white);
     font-weight: 600;
     font-size: 0.9375rem;
-    font-family: 'Arial', sans-serif;
+    font-family: 'Roboto', sans-serif;
 }
 
 .hamburger {
@@ -399,23 +484,28 @@ h1, h2, h3, h4, h5, h6 {
 // Bootstrap Tabs Customization (for future use)
 .nav-tabs {
     border-bottom: 2px solid rgba(255, 255, 255, 0.1);
-    
+
     .nav-link {
         color: $text-dark;
         border: none;
         border-bottom: 3px solid transparent;
         padding: 0.75rem 1.5rem;
         transition: all 0.3s ease;
-        
+
         &:hover {
             border-color: $gold;
             color: $gold;
         }
-        
+
         &.active {
             background: transparent;
             border-color: $gold;
             color: $gold;
+        }
+
+        &:focus-visible {
+            outline: 0;
+            box-shadow: none !important;
         }
     }
 }
@@ -507,15 +597,15 @@ h1, h2, h3, h4, h5, h6 {
     color: $text-white;
     font-size: 1rem;
     transition: all 0.3s ease;
-    
+
     &:focus {
-        outline: none;
+        outline: 0;
         border-color: $gold;
         background: rgba(255, 255, 255, 0.1);
         box-shadow: 0 0 0 0.2rem rgba(212, 175, 55, 0.25);
         color: $text-white;
     }
-    
+
     &::placeholder {
         color: rgba(255, 255, 255, 0.5);
     }
@@ -535,7 +625,7 @@ textarea.form-control {
     border-radius: 12px;
     border: 1px solid rgba(212, 175, 55, 0.2);
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    
+
     @media (max-width: 768px) {
         padding: 1.5rem;
     }
@@ -555,14 +645,14 @@ textarea.form-control {
     color: $text-dark;
     font-size: 1rem;
     letter-spacing: 0.3px;
-    
+
     i {
         color: $gold;
         font-size: 1rem;
         width: 20px;
         text-align: center;
     }
-    
+
     .required {
         color: #dc3545;
         font-weight: 700;
@@ -580,32 +670,32 @@ textarea.form-control {
         border-radius: 8px;
         transition: all 0.3s ease;
         width: 100%;
-        
+
         &:hover {
             border-color: rgba(212, 175, 55, 0.5);
         }
-        
+
         &:focus {
-            outline: none;
+            outline: 0;
             border-color: $gold;
             box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.2);
             background: $white;
         }
-        
+
         &::placeholder {
             color: rgba(0, 0, 0, 0.4);
             font-style: italic;
         }
-        
+
         &:invalid:not(:placeholder-shown) {
             border-color: #dc3545;
         }
-        
+
         &:valid:not(:placeholder-shown) {
             border-color: #28a745;
         }
     }
-    
+
     select.form-control {
         cursor: pointer;
         appearance: none;
@@ -614,18 +704,18 @@ textarea.form-control {
         background-position: right 1rem center;
         padding-right: 3rem;
         background-color: $white;
-        
+
         &:focus {
             background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%23d4af37' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E");
         }
-        
+
         option {
             padding: 0.5rem;
             background: $white;
             color: $text-dark;
         }
     }
-    
+
     textarea.form-control {
         resize: vertical;
         min-height: 180px;
@@ -637,7 +727,7 @@ textarea.form-control {
 .form-submit-wrapper {
     margin-top: 1.5rem;
     text-align: center;
-    
+
     @media (max-width: 768px) {
         text-align: center;
     }
@@ -662,12 +752,12 @@ textarea.form-control {
     box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
     position: relative;
     overflow: hidden;
-    
+
     i {
         font-size: 1rem;
         transition: transform 0.3s ease;
     }
-    
+
     &::before {
         content: '';
         position: absolute;
@@ -680,33 +770,33 @@ textarea.form-control {
         transform: translate(-50%, -50%);
         transition: width 0.6s ease, height 0.6s ease;
     }
-    
+
     &:hover {
         background: linear-gradient(135deg, darken($gold, 5%) 0%, darken($gold, 10%) 100%);
         transform: translateY(-2px);
         box-shadow: 0 6px 20px rgba(212, 175, 55, 0.4);
         color: $dark-grey;
-        
+
         i {
             transform: translateX(3px);
         }
-        
+
         &::before {
             width: 300px;
             height: 300px;
         }
     }
-    
+
     &:active {
         transform: translateY(0);
         box-shadow: 0 2px 10px rgba(212, 175, 55, 0.3);
     }
-    
+
     &:focus {
-        outline: none;
+        outline: 0;
         box-shadow: 0 0 0 0.25rem rgba(212, 175, 55, 0.3);
     }
-    
+
     @media (max-width: 768px) {
         padding: 1rem 2rem;
         font-size: 0.9rem;
@@ -732,6 +822,7 @@ textarea.form-control {
         opacity: 0;
         transform: translateY(20px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -740,11 +831,11 @@ textarea.form-control {
 
 .contact-form {
     animation: fadeInUp 0.6s ease-out;
-    
+
     .form-group-wrapper {
         animation: fadeInUp 0.6s ease-out;
         animation-fill-mode: both;
-        
+
         @for $i from 1 through 6 {
             &:nth-child(#{$i}) {
                 animation-delay: #{$i * 0.1}s;
@@ -756,21 +847,21 @@ textarea.form-control {
 /* Gallery Styles */
 .gallery-grid {
     margin-top: 3rem;
-    
+
     .gallery-item {
         position: relative;
         overflow: hidden;
         border-radius: 8px;
         transition: transform 0.3s ease;
-        
+
         &:hover {
             transform: translateY(-5px);
-            
+
             img {
                 transform: scale(1.1);
             }
         }
-        
+
         img {
             transition: transform 0.4s ease;
             width: 100%;
@@ -778,7 +869,7 @@ textarea.form-control {
             object-fit: cover;
             border-radius: 8px;
         }
-        
+
         p {
             margin-top: 1rem;
             text-align: center;
@@ -902,7 +993,7 @@ textarea.form-control {
     border: 2px solid $gold;
     border-radius: 4px;
     margin-top: 1rem;
-    
+
     &:hover {
         background: transparent;
         color: $gold;
@@ -915,7 +1006,7 @@ textarea.form-control {
 .hero-arrow {
     font-size: 1rem;
     transition: transform 0.3s ease;
-    
+
     .hero-btn:hover & {
         transform: translateX(3px);
     }
@@ -923,13 +1014,14 @@ textarea.form-control {
 
 // Swiper Customization for Hero Slider
 .hero-slider.swiper {
+
     // Pagination dots styling
     .swiper-pagination {
         bottom: 30px !important;
         text-align: center;
         z-index: 10;
     }
-    
+
     .swiper-pagination-bullet {
         width: 12px;
         height: 12px;
@@ -938,18 +1030,18 @@ textarea.form-control {
         margin: 0 6px;
         transition: all 0.3s ease;
         cursor: pointer;
-        
+
         &-active {
             opacity: 1;
             transform: scale(1.2);
             background: $white;
         }
     }
-    
+
     .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
         opacity: 0.8;
     }
-    
+
     // Hide navigation arrows (if needed later)
     .swiper-button-next,
     .swiper-button-prev {
@@ -962,11 +1054,11 @@ textarea.form-control {
     .hero-title {
         font-size: 3.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 2rem;
     }
-    
+
     .hero-content {
         padding: 2.5rem 3rem;
     }
@@ -977,24 +1069,24 @@ textarea.form-control {
         height: 80vh;
         min-height: 500px;
     }
-    
+
     .hero-title {
         font-size: 3rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.75rem;
     }
-    
+
     .hero-content {
         padding: 2rem 2.5rem;
         gap: 1.25rem;
     }
-    
+
     .hero-logo {
         max-width: 120px;
     }
-    
+
     .hero-btn {
         padding: 0.875rem 2rem;
         font-size: 0.8125rem;
@@ -1006,46 +1098,46 @@ textarea.form-control {
         height: 70vh;
         min-height: 450px;
     }
-    
+
     .hero-title {
         font-size: 2.5rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.5rem;
     }
-    
+
     .hero-content {
         padding: 2rem 2rem;
         gap: 1rem;
         width: 95%;
     }
-    
+
     .hero-logo {
         max-width: 100px;
         margin-bottom: 0.5rem;
     }
-    
+
     .hero-line {
         width: 60px;
         height: 2px;
         margin: 0.25rem 0;
     }
-    
+
     .hero-btn {
         padding: 0.875rem 1.5rem;
         font-size: 0.75rem;
         gap: 0.5rem;
     }
-    
+
     .hero-arrow {
         font-size: 0.875rem;
     }
-    
+
     .hero-slider.swiper .swiper-pagination {
         bottom: 20px !important;
     }
-    
+
     .hero-slider.swiper .swiper-pagination-bullet {
         width: 10px;
         height: 10px;
@@ -1058,40 +1150,40 @@ textarea.form-control {
         height: 60vh;
         min-height: 400px;
     }
-    
+
     .hero-title {
         font-size: 2rem;
     }
-    
+
     .hero-subtitle {
         font-size: 1.25rem;
     }
-    
+
     .hero-content {
         padding: 1.5rem 1.5rem;
         gap: 0.75rem;
     }
-    
+
     .hero-logo {
         max-width: 80px;
         margin-bottom: 0.25rem;
     }
-    
+
     .hero-line {
         width: 50px;
         height: 2px;
     }
-    
+
     .hero-btn {
         padding: 0.75rem 1.25rem;
         font-size: 0.6875rem;
         margin-top: 0.5rem;
     }
-    
+
     .hero-slider.swiper .swiper-pagination {
         bottom: 15px !important;
     }
-    
+
     .hero-slider.swiper .swiper-pagination-bullet {
         width: 8px;
         height: 8px;
@@ -1201,7 +1293,7 @@ textarea.form-control {
     font-family: $font-sans;
     border: 2px solid $text-dark;
     border-radius: 4px;
-    
+
     &:hover {
         background: $gold;
         color: $text-dark;
@@ -1289,7 +1381,7 @@ textarea.form-control {
     .about-title {
         font-size: 2.5rem;
     }
-    
+
     .about-images-col {
         height: 500px;
     }
@@ -1299,58 +1391,58 @@ textarea.form-control {
     .about-section {
         padding: 3rem 0;
     }
-    
+
     .about-title {
         font-size: 2rem;
     }
-    
+
     .about-content-row {
         gap: 3rem;
     }
-    
+
     .about-text-wrapper {
         flex-direction: column;
         gap: 1rem;
     }
-    
+
     .about-decorative-element {
         flex-direction: row;
         align-items: center;
         margin-top: 0;
     }
-    
+
     .gold-diamond {
         margin-bottom: 0;
         margin-right: 12px;
     }
-    
+
     .gold-line {
         width: 80px;
         height: 2px;
     }
-    
+
     .about-paragraphs {
         gap: 1rem;
     }
-    
+
     .about-paragraph {
         font-size: 0.9375rem;
     }
-    
+
     .about-images-col {
         height: 500px;
     }
-    
+
     .about-main-image {
         width: 80%;
         height: 70%;
     }
-    
+
     .about-overlay-image-top {
         width: 45%;
         height: 35%;
     }
-    
+
     .about-overlay-image-bottom {
         width: 45%;
         height: 35%;
@@ -1361,54 +1453,54 @@ textarea.form-control {
     .about-title {
         font-size: 1.75rem;
     }
-    
+
     .about-content-row {
         flex-direction: column;
         gap: 2rem;
     }
-    
+
     .about-text-col {
         order: 1;
     }
-    
+
     .about-images-col {
         order: 2;
         height: 400px;
     }
-    
+
     .about-text-content {
         gap: 1.5rem;
     }
-    
+
     .about-paragraph {
         font-size: 0.875rem;
     }
-    
+
     .about-cta {
         margin-top: 1.5rem;
     }
-    
+
     .about-btn {
         width: 100%;
         padding: 0.875rem 1.5rem;
         font-size: 0.8125rem;
     }
-    
+
     .about-map-outline {
         display: none; // Hide on mobile for better layout
     }
-    
+
     .about-main-image {
         width: 75%;
         height: 65%;
     }
-    
+
     .about-overlay-image-top {
         width: 40%;
         height: 30%;
         transform: translate(5%, -5%);
     }
-    
+
     .about-overlay-image-bottom {
         width: 40%;
         height: 30%;
@@ -1420,41 +1512,41 @@ textarea.form-control {
     .about-section {
         padding: 2rem 0;
     }
-    
+
     .about-title {
         font-size: 1.5rem;
     }
-    
+
     .about-text-content {
         gap: 1rem;
     }
-    
+
     .about-paragraphs {
         gap: 0.75rem;
     }
-    
+
     .about-paragraph {
         font-size: 0.8125rem;
     }
-    
+
     .about-cta {
         margin-top: 1rem;
     }
-    
+
     .about-images-col {
         height: 350px;
     }
-    
+
     .about-main-image {
         width: 70%;
         height: 60%;
     }
-    
+
     .about-overlay-image-top {
         width: 35%;
         height: 25%;
     }
-    
+
     .about-overlay-image-bottom {
         width: 35%;
         height: 25%;
@@ -1506,7 +1598,7 @@ textarea.form-control {
     height: 600px;
     overflow: hidden;
     position: relative;
-    
+
     &::after {
         content: '';
         position: absolute;
@@ -1518,7 +1610,7 @@ textarea.form-control {
         transition: background 0.3s ease;
         pointer-events: none;
     }
-    
+
     &:hover::after {
         background: rgba(0, 0, 0, 0.3);
     }
@@ -1530,7 +1622,7 @@ textarea.form-control {
     object-fit: cover;
     display: block;
     transition: transform 0.3s ease, filter 0.3s ease;
-    
+
     .holiday-homes-image-wrapper:hover & {
         transform: scale(1.05);
         filter: brightness(0.7);
@@ -1600,7 +1692,7 @@ textarea.form-control {
     font-family: $font-sans;
     border: 2px solid $text-dark;
     border-radius: 4px;
-    
+
     &:hover {
         background: $gold;
         color: $text-dark;
@@ -1627,7 +1719,7 @@ textarea.form-control {
     align-items: center;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    
+
     &:last-child {
         border-bottom: none;
         padding-bottom: 0;
@@ -1653,11 +1745,11 @@ textarea.form-control {
     .holiday-homes-title {
         font-size: 3rem;
     }
-    
+
     .holiday-homes-image-wrapper {
         height: 500px;
     }
-    
+
     .holiday-homes-content-title {
         font-size: 2.25rem;
     }
@@ -1667,47 +1759,47 @@ textarea.form-control {
     .holiday-homes-section {
         padding: 3rem 0;
     }
-    
+
     .holiday-homes-title {
         font-size: 2.5rem;
     }
-    
+
     .holiday-homes-subtitle {
         font-size: 0.875rem;
     }
-    
+
     .holiday-homes-header {
         margin-bottom: 3rem;
     }
-    
+
     .holiday-homes-images-row {
         margin-bottom: 3rem;
     }
-    
+
     .holiday-homes-image-wrapper {
         height: 400px;
     }
-    
+
     .holiday-homes-content-row {
         gap: 2rem;
     }
-    
+
     .holiday-homes-content-title {
         font-size: 2rem;
     }
-    
+
     .holiday-homes-description {
         font-size: 0.9375rem;
     }
-    
+
     .holiday-spec-label {
         font-size: 0.9375rem;
     }
-    
+
     .holiday-spec-value {
         font-size: 1rem;
     }
-    
+
     .holiday-homes-btn {
         padding: 0.875rem 2rem;
         font-size: 0.8125rem;
@@ -1718,61 +1810,61 @@ textarea.form-control {
     .holiday-homes-title {
         font-size: 2rem;
     }
-    
+
     .holiday-homes-subtitle {
         font-size: 0.8125rem;
     }
-    
+
     .holiday-homes-images-row {
         flex-direction: column;
         gap: 0;
     }
-    
+
     .holiday-homes-image-wrapper {
         height: 350px;
     }
-    
+
     .holiday-homes-content-row {
         flex-direction: column;
         gap: 2rem;
     }
-    
+
     .holiday-homes-text-col {
         order: 1;
     }
-    
+
     .holiday-homes-specs-col {
         order: 2;
     }
-    
+
     .holiday-homes-content-title {
         font-size: 1.75rem;
     }
-    
+
     .holiday-homes-content-subtitle {
         font-size: 0.8125rem;
     }
-    
+
     .holiday-homes-description {
         font-size: 0.875rem;
     }
-    
+
     .holiday-homes-specifications {
         gap: 1rem;
     }
-    
+
     .holiday-spec-item {
         padding-bottom: 0.75rem;
     }
-    
+
     .holiday-spec-label {
         font-size: 0.875rem;
     }
-    
+
     .holiday-spec-value {
         font-size: 0.9375rem;
     }
-    
+
     .holiday-homes-btn {
         width: 100%;
         padding: 0.875rem 1.5rem;
@@ -1783,51 +1875,51 @@ textarea.form-control {
     .holiday-homes-section {
         padding: 2rem 0;
     }
-    
+
     .holiday-homes-title {
         font-size: 1.75rem;
     }
-    
+
     .holiday-homes-subtitle {
         font-size: 0.75rem;
     }
-    
+
     .holiday-homes-header {
         margin-bottom: 2rem;
     }
-    
+
     .holiday-homes-images-row {
         margin-bottom: 2rem;
     }
-    
+
     .holiday-homes-image-wrapper {
         height: 300px;
     }
-    
+
     .holiday-homes-content-row {
         margin-top: 1.5rem;
     }
-    
+
     .holiday-homes-text-content {
         gap: 1rem;
     }
-    
+
     .holiday-homes-content-title {
         font-size: 1.5rem;
     }
-    
+
     .holiday-homes-content-subtitle {
         font-size: 0.75rem;
     }
-    
+
     .holiday-homes-description {
         font-size: 0.8125rem;
     }
-    
+
     .holiday-homes-cta {
         margin-top: 1rem;
     }
-    
+
     .holiday-spec-item {
         flex-direction: column;
         align-items: flex-start;
@@ -1912,7 +2004,7 @@ textarea.form-control {
 
 .specifications-tab-content {
     margin-top: 3rem;
-    
+
     .tab-pane {
         animation: fadeIn 0.4s ease-in-out;
     }
@@ -1923,6 +2015,7 @@ textarea.form-control {
         opacity: 0;
         transform: translateY(10px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -1962,7 +2055,7 @@ textarea.form-control {
     align-items: center;
     padding-bottom: 1rem;
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
-    
+
     &:last-child {
         border-bottom: none;
         padding-bottom: 0;
@@ -2002,7 +2095,7 @@ textarea.form-control {
     transition: all 0.3s ease;
     font-family: $font-sans;
     border: 2px solid $text-dark;
-    
+
     &:hover {
         background: $gold;
         color: $text-dark;
@@ -2051,7 +2144,7 @@ textarea.form-control {
     overflow: hidden;
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    
+
     iframe {
         position: absolute;
         top: 0;
@@ -2066,7 +2159,7 @@ textarea.form-control {
     .specifications-title {
         font-size: 3rem;
     }
-    
+
     .specifications-tabs .nav-link {
         padding: 0.625rem 1.25rem;
         font-size: 0.9375rem;
@@ -2077,49 +2170,49 @@ textarea.form-control {
     .specifications-section {
         padding: 3rem 0;
     }
-    
+
     .specifications-title {
         font-size: 2.5rem;
     }
-    
+
     .specifications-subtitle {
         font-size: 0.875rem;
     }
-    
+
     .specifications-tabs-wrapper {
         margin-top: 2rem;
         margin-bottom: 2rem;
     }
-    
+
     .specifications-tabs {
         gap: 0.5rem;
-        
+
         .nav-link {
             padding: 0.5rem 1rem;
             font-size: 0.875rem;
         }
     }
-    
+
     .specifications-content-row {
         gap: 2rem;
     }
-    
+
     .specifications-text-column {
         gap: 2rem;
     }
-    
+
     .specifications-description p {
         font-size: 0.9375rem;
     }
-    
+
     .spec-label {
         font-size: 0.9375rem;
     }
-    
+
     .spec-value {
         font-size: 1rem;
     }
-    
+
     .specifications-btn {
         padding: 0.875rem 2rem;
         font-size: 0.8125rem;
@@ -2130,20 +2223,20 @@ textarea.form-control {
     .specifications-title {
         font-size: 2rem;
     }
-    
+
     .specifications-subtitle {
         font-size: 0.8125rem;
     }
-    
+
     .specifications-tabs {
         flex-direction: column;
         gap: 0.5rem;
-        
+
         .nav-item {
             width: 100%;
             margin-bottom: 0;
         }
-        
+
         .nav-link {
             width: 100%;
             text-align: center;
@@ -2151,53 +2244,53 @@ textarea.form-control {
             font-size: 0.875rem;
             border-bottom: none;
             border-left: 3px solid transparent;
-            
+
             &.active {
                 border-left-color: $text-dark;
                 border-bottom-color: transparent;
             }
-            
+
             &:hover {
                 border-left-color: rgba(0, 0, 0, 0.2);
                 border-bottom-color: transparent;
             }
         }
     }
-    
+
     .specifications-content-row {
         flex-direction: column;
         gap: 2rem;
     }
-    
+
     .specifications-text-column {
         order: 2;
     }
-    
+
     .specifications-image-column {
         order: 1;
     }
-    
+
     .specifications-description p {
         font-size: 0.875rem;
     }
-    
+
     .spec-item {
         padding-bottom: 0.75rem;
     }
-    
+
     .spec-label {
         font-size: 0.875rem;
     }
-    
+
     .spec-value {
         font-size: 0.9375rem;
     }
-    
+
     .specifications-btn {
         width: 100%;
         padding: 0.875rem 1.5rem;
     }
-    
+
     .specifications-video-placeholder {
         padding-bottom: 56.25%;
     }
@@ -2207,32 +2300,32 @@ textarea.form-control {
     .specifications-section {
         padding: 2rem 0;
     }
-    
+
     .specifications-title {
         font-size: 1.75rem;
     }
-    
+
     .specifications-subtitle {
         font-size: 0.75rem;
     }
-    
+
     .specifications-tabs-wrapper {
         margin-top: 1.5rem;
         margin-bottom: 1.5rem;
     }
-    
+
     .specifications-tab-content {
         margin-top: 2rem;
     }
-    
+
     .specifications-text-column {
         gap: 1.5rem;
     }
-    
+
     .specifications-list {
         gap: 1rem;
     }
-    
+
     .spec-item {
         flex-direction: column;
         align-items: flex-start;
@@ -2295,14 +2388,14 @@ textarea.form-control {
     height: 350px;
     overflow: hidden;
     position: relative;
-    
+
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.4s ease;
     }
-    
+
     .attraction-card:hover & img {
         transform: scale(1.08);
     }
@@ -2355,7 +2448,7 @@ textarea.form-control {
     margin-top: auto;
     border: 2px solid $gold;
     border-radius: 4px;
-    
+
     &:hover {
         background: $gold;
         color: $dark-grey;
@@ -2367,7 +2460,7 @@ textarea.form-control {
 // Swiper Customization for Attractions Slider
 .attractions-slider.swiper {
     padding-bottom: 3rem; // Space for pagination
-    
+
     // Pagination dots
     .swiper-pagination {
         position: relative;
@@ -2375,7 +2468,7 @@ textarea.form-control {
         margin-top: 3rem;
         text-align: center;
     }
-    
+
     .swiper-pagination-bullet {
         width: 12px;
         height: 12px;
@@ -2385,25 +2478,25 @@ textarea.form-control {
         margin: 0 6px;
         transition: all 0.3s ease;
         cursor: pointer;
-        
+
         &-active {
             background: $gold;
             border-color: $gold;
             transform: scale(1.2);
         }
     }
-    
+
     .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
         background: rgba(212, 175, 55, 0.5);
         border-color: $gold;
     }
-    
+
     // Hide navigation arrows
     .swiper-button-next,
     .swiper-button-prev {
         display: none !important;
     }
-    
+
     // Ensure slides are properly displayed
     .swiper-slide {
         height: auto;
@@ -2456,11 +2549,11 @@ textarea.form-control {
     border-bottom: 2px solid rgba(0, 0, 0, 0.1);
     justify-content: center;
     margin-top: 2rem;
-    
+
     .nav-item {
         margin-bottom: -2px;
     }
-    
+
     .nav-link {
         color: $text-dark;
         border: none;
@@ -2472,13 +2565,13 @@ textarea.form-control {
         letter-spacing: 1px;
         font-family: $font-sans;
         font-size: 0.875rem;
-        
+
         &:hover {
             border-color: $gold;
             color: $gold;
             background: transparent;
         }
-        
+
         &.active {
             background: transparent;
             border-color: $gold;
@@ -2503,7 +2596,7 @@ textarea.form-control {
     width: 100%;
     height: 100%;
     z-index: 1;
-    
+
     .hero-bg-image {
         position: absolute;
         top: 0;
@@ -2512,12 +2605,12 @@ textarea.form-control {
         height: 100%;
         object-fit: cover;
         transition: opacity 0.5s ease, transform 0.5s ease;
-        
+
         &:not(.active) {
             opacity: 0;
             transform: scale(1.05);
         }
-        
+
         &.active {
             opacity: 1;
             transform: scale(1);
@@ -2546,13 +2639,13 @@ textarea.form-control {
     border-radius: 8px;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.15);
     transition: transform 0.4s ease, opacity 0.4s ease;
-    
+
     &:not(.active) {
         opacity: 0;
         transform: translateY(20px);
         pointer-events: none;
     }
-    
+
     &.active {
         opacity: 1;
         transform: translateY(0);
@@ -2588,16 +2681,16 @@ textarea.form-control {
     font-family: $font-sans;
     text-decoration: none;
     transition: all 0.3s ease;
-    
+
     &:hover {
         color: $gold;
         gap: 0.75rem;
-        
+
         &::after {
             transform: translateX(3px);
         }
     }
-    
+
     &::after {
         content: '→';
         font-size: 1rem;
@@ -2612,14 +2705,14 @@ textarea.form-control {
     opacity: 0;
     height: 0;
     overflow: hidden;
-    
+
     .tab-pane {
         transition: opacity 0.3s ease;
-        
+
         &.fade {
             opacity: 0;
             transition: opacity 0.15s linear;
-            
+
             &.show {
                 opacity: 1;
             }
@@ -2695,14 +2788,14 @@ textarea.form-control {
     height: 350px;
     overflow: hidden;
     position: relative;
-    
+
     img {
         width: 100%;
         height: 100%;
         object-fit: cover;
         transition: transform 0.4s ease;
     }
-    
+
     .news-card:hover & img {
         transform: scale(1.08);
     }
@@ -2746,7 +2839,7 @@ textarea.form-control {
     padding: 0;
     margin: 0 0 2rem 0;
     flex: 1;
-    
+
     li {
         display: flex;
         align-items: center;
@@ -2755,14 +2848,14 @@ textarea.form-control {
         color: rgba(255, 255, 255, 0.9);
         font-family: $font-sans;
         font-size: 0.9375rem;
-        
+
         i {
             color: $gold;
             font-size: 0.875rem;
             width: 16px;
             flex-shrink: 0;
         }
-        
+
         span {
             line-height: 1.5;
         }
@@ -2785,17 +2878,17 @@ textarea.form-control {
     font-family: $font-sans;
     align-self: flex-start;
     margin-top: auto;
-    
+
     &:hover {
         background: $gold-hover;
         color: $dark-grey;
         transform: translateX(5px);
-        
+
         i {
             transform: translateX(3px);
         }
     }
-    
+
     i {
         transition: transform 0.3s ease;
         font-size: 0.75rem;
@@ -2805,7 +2898,7 @@ textarea.form-control {
 // Swiper Customization for News Slider
 .news-slider.swiper {
     padding-bottom: 3rem; // Space for pagination
-    
+
     // Pagination dots
     .swiper-pagination {
         position: relative;
@@ -2813,7 +2906,7 @@ textarea.form-control {
         margin-top: 3rem;
         text-align: center;
     }
-    
+
     .swiper-pagination-bullet {
         width: 12px;
         height: 12px;
@@ -2823,25 +2916,25 @@ textarea.form-control {
         margin: 0 6px;
         transition: all 0.3s ease;
         cursor: pointer;
-        
+
         &-active {
             background: $gold;
             border-color: $gold;
             transform: scale(1.2);
         }
     }
-    
+
     .swiper-pagination-bullet:hover:not(.swiper-pagination-bullet-active) {
         background: rgba(212, 175, 55, 0.5);
         border-color: $gold;
     }
-    
+
     // Hide navigation arrows (if added later)
     .swiper-button-next,
     .swiper-button-prev {
         display: none;
     }
-    
+
     // Ensure slides are properly displayed
     .swiper-slide {
         height: auto;
@@ -2870,7 +2963,7 @@ textarea.form-control {
     height: 425px;
     border: 0;
     display: block;
-    
+
     @media (max-width: 1300px) {
         max-width: 100%;
         width: 100vw;
@@ -3004,42 +3097,42 @@ textarea.form-control {
     .restaurant-section {
         padding: 3rem 0;
     }
-    
+
     .restaurant-title {
         font-size: 2.5rem;
     }
-    
+
     .restaurant-subtitle {
         font-size: 0.875rem;
     }
-    
+
     .restaurant-description {
         font-size: 0.9375rem;
         padding: 0 1rem;
     }
-    
+
     .restaurant-tabs {
         .nav-link {
             padding: 0.625rem 1rem;
             font-size: 0.8125rem;
         }
     }
-    
+
     .restaurant-hero {
         height: 500px;
     }
-    
+
     .overlay-content {
         bottom: 1.5rem;
         left: 1.5rem;
         padding: 2rem;
         max-width: calc(100% - 3rem);
     }
-    
+
     .overlay-title {
         font-size: 1.75rem;
     }
-    
+
     .overlay-description {
         font-size: 0.9375rem;
     }
@@ -3048,30 +3141,30 @@ textarea.form-control {
     .news-section {
         padding: 3rem 0;
     }
-    
+
     .news-title {
         font-size: 2.5rem;
     }
-    
+
     .news-subtitle {
         font-size: 0.875rem;
     }
-    
+
     .news-card-content {
         padding: 1.5rem;
     }
-    
+
     .news-card-title {
         font-size: 1.5rem;
     }
-    
+
     .news-features li {
         font-size: 0.875rem;
     }
 
     /* Top Bar Responsive */
     .top-bar {
-        padding: 0.5rem 0;
+        padding: 0;
     }
 
     // Bootstrap Grid handles layout - row and col-* classes automatically stack on mobile
@@ -3135,7 +3228,7 @@ textarea.form-control {
         max-height: calc(100vh - 140px);
         overflow-y: auto;
         z-index: 999;
-        
+
         &.active {
             display: flex !important; // Show as flex when active (hamburger clicked)
             left: 0;
@@ -3161,7 +3254,7 @@ textarea.form-control {
 
     .dropdown-item {
         padding: 0.75rem 3rem;
-        
+
         &:hover,
         &:focus {
             padding-left: 3.5rem;
@@ -3204,32 +3297,33 @@ textarea.form-control {
 }
 
 @media (max-width: 768px) {
+
     /* Attractions Section Mobile */
     .attractions-title {
         font-size: 2rem;
     }
-    
+
     .attractions-subtitle {
         font-size: 0.8125rem;
     }
-    
+
     .attraction-card-image {
         height: 300px;
     }
-    
+
     .attraction-card-content {
         padding: 1.5rem;
         min-height: 180px;
     }
-    
+
     .attraction-card-title {
         font-size: 1.25rem;
     }
-    
+
     .attraction-card-description {
         font-size: 0.8125rem;
     }
-    
+
     .attraction-btn {
         padding: 0.75rem 1.5rem;
         font-size: 0.8125rem;
@@ -3239,38 +3333,38 @@ textarea.form-control {
     .restaurant-title {
         font-size: 2rem;
     }
-    
+
     .restaurant-subtitle {
         font-size: 0.8125rem;
     }
-    
+
     .restaurant-description {
         font-size: 0.875rem;
         padding: 0;
     }
-    
+
     .restaurant-tabs {
         .nav-link {
             padding: 0.5rem 0.75rem;
             font-size: 0.75rem;
         }
     }
-    
+
     .restaurant-hero {
         height: 400px;
     }
-    
+
     .overlay-content {
         bottom: 1rem;
         left: 1rem;
         padding: 1.5rem;
         max-width: calc(100% - 2rem);
     }
-    
+
     .overlay-title {
         font-size: 1.5rem;
     }
-    
+
     .overlay-description {
         font-size: 0.875rem;
         margin-bottom: 1rem;
@@ -3404,23 +3498,23 @@ textarea.form-control {
 .breadcrumb-item {
     color: $text-light;
     font-size: 0.875rem;
-    
+
     a {
         color: $gold;
         text-decoration: none;
         transition: color 0.3s ease;
-        
+
         &:hover {
             color: $gold-hover;
             text-decoration: underline;
         }
     }
-    
+
     &.active {
         color: $text-light;
     }
-    
-    & + .breadcrumb-item::before {
+
+    &+.breadcrumb-item::before {
         content: "/";
         color: $text-light;
         padding: 0 0.5rem;
@@ -3471,12 +3565,12 @@ textarea.form-control {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: $text-light;
     font-size: 0.875rem;
-    
+
     span {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        
+
         i {
             color: $gold;
         }
@@ -3488,14 +3582,14 @@ textarea.form-control {
     margin-bottom: 2.5rem;
     border-radius: 8px;
     overflow: hidden;
-    
+
     img {
         width: 100%;
         height: auto;
         display: block;
         transition: transform 0.3s ease;
     }
-    
+
     &:hover img {
         transform: scale(1.02);
     }
@@ -3506,11 +3600,11 @@ textarea.form-control {
     line-height: 1.8;
     color: $text-dark;
     margin-bottom: 2.5rem;
-    
+
     p {
         margin-bottom: 1.5rem;
     }
-    
+
     p:last-child {
         margin-bottom: 0;
     }
@@ -3528,7 +3622,7 @@ textarea.form-control {
     list-style: none;
     padding: 0;
     margin: 0;
-    
+
     li {
         display: flex;
         align-items: flex-start;
@@ -3538,11 +3632,11 @@ textarea.form-control {
         font-size: 1rem;
         color: $text-dark;
         line-height: 1.6;
-        
+
         &:last-child {
             border-bottom: none;
         }
-        
+
         i {
             color: $gold;
             font-size: 1.125rem;
@@ -3562,7 +3656,7 @@ textarea.form-control {
     padding: 2rem;
     border-radius: 8px;
     margin-bottom: 2rem;
-    
+
     &:last-child {
         margin-bottom: 0;
     }
@@ -3586,7 +3680,7 @@ textarea.form-control {
 
 .related-news-item {
     transition: transform 0.3s ease;
-    
+
     &:hover {
         transform: translateY(-3px);
     }
@@ -3596,7 +3690,7 @@ textarea.form-control {
     display: block;
     text-decoration: none;
     color: inherit;
-    
+
     img {
         width: 100%;
         height: 150px;
@@ -3605,11 +3699,11 @@ textarea.form-control {
         margin-bottom: 1rem;
         transition: transform 0.3s ease;
     }
-    
+
     &:hover img {
         transform: scale(1.05);
     }
-    
+
     h4 {
         font-size: 1rem;
         font-weight: 600;
@@ -3618,7 +3712,7 @@ textarea.form-control {
         transition: color 0.3s ease;
         font-family: $font-sans;
     }
-    
+
     &:hover h4 {
         color: $gold;
     }
@@ -3626,7 +3720,7 @@ textarea.form-control {
 
 .contact-info {
     margin-bottom: 1.5rem;
-    
+
     p {
         display: flex;
         align-items: center;
@@ -3634,11 +3728,11 @@ textarea.form-control {
         margin-bottom: 1rem;
         font-size: 0.9375rem;
         color: $text-dark;
-        
+
         &:last-child {
             margin-bottom: 0;
         }
-        
+
         i {
             color: $gold;
             font-size: 1.125rem;
@@ -3662,7 +3756,7 @@ textarea.form-control {
     transition: all 0.3s ease;
     width: 100%;
     text-align: center;
-    
+
     &:hover {
         background: $gold-hover;
         color: $dark-grey;
@@ -3676,15 +3770,15 @@ textarea.form-control {
     .news-detail-title {
         font-size: 2rem;
     }
-    
+
     .news-detail-content {
         font-size: 1rem;
     }
-    
+
     .features-title {
         font-size: 1.25rem;
     }
-    
+
     .sidebar-widget {
         margin-top: 3rem;
     }
@@ -3694,28 +3788,28 @@ textarea.form-control {
     .breadcrumbs-section {
         padding: 1.5rem 0;
     }
-    
+
     .news-detail-section {
         padding: 2rem 0;
     }
-    
+
     .news-detail-title {
         font-size: 1.75rem;
     }
-    
+
     .news-detail-meta {
         flex-direction: column;
         gap: 0.75rem;
     }
-    
+
     .news-detail-content {
         font-size: 0.9375rem;
     }
-    
+
     .sidebar-widget {
         padding: 1.5rem;
     }
-    
+
     .widget-title {
         font-size: 1.25rem;
     }
@@ -3726,7 +3820,7 @@ textarea.form-control {
     background: $white;
     padding: 4rem 0;
     min-height: 70vh;
-    
+
     .container {
         max-width: 1200px;
     }
@@ -3769,12 +3863,12 @@ textarea.form-control {
     border-bottom: 1px solid rgba(0, 0, 0, 0.1);
     color: $text-light;
     font-size: 0.875rem;
-    
+
     span {
         display: flex;
         align-items: center;
         gap: 0.5rem;
-        
+
         i {
             color: $gold;
         }
@@ -3787,14 +3881,14 @@ textarea.form-control {
     border-radius: 12px;
     overflow: hidden;
     box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
-    
+
     img {
         width: 100%;
         height: auto;
         display: block;
         transition: transform 0.3s ease;
     }
-    
+
     &:hover img {
         transform: scale(1.02);
     }
@@ -3805,15 +3899,15 @@ textarea.form-control {
     line-height: 1.8;
     color: $text-dark;
     margin-bottom: 2.5rem;
-    
+
     p {
         margin-bottom: 1.5rem;
     }
-    
+
     p:last-child {
         margin-bottom: 0;
     }
-    
+
     h2 {
         font-size: 1.75rem;
         font-weight: 700;
@@ -3821,12 +3915,12 @@ textarea.form-control {
         margin-top: 2.5rem;
         margin-bottom: 1rem;
         font-family: $font-heading;
-        
+
         &:first-child {
             margin-top: 0;
         }
     }
-    
+
     h3 {
         font-size: 1.5rem;
         font-weight: 600;
@@ -3835,12 +3929,13 @@ textarea.form-control {
         margin-bottom: 1rem;
         font-family: $font-heading;
     }
-    
-    ul, ol {
+
+    ul,
+    ol {
         margin: 1.5rem 0;
         padding-left: 2rem;
         color: $text-dark;
-        
+
         li {
             margin-bottom: 0.75rem;
             line-height: 1.8;
@@ -3859,19 +3954,19 @@ textarea.form-control {
     .attraction-detail-title {
         font-size: 2rem;
     }
-    
+
     .attraction-detail-content {
         font-size: 1rem;
-        
+
         h2 {
             font-size: 1.5rem;
         }
-        
+
         h3 {
             font-size: 1.25rem;
         }
     }
-    
+
     .features-title {
         font-size: 1.25rem;
     }
@@ -3881,33 +3976,33 @@ textarea.form-control {
     .attraction-detail-section {
         padding: 2rem 0;
     }
-    
+
     .attraction-detail-title {
         font-size: 1.75rem;
     }
-    
+
     .attraction-detail-meta {
         flex-direction: column;
         gap: 0.75rem;
     }
-    
+
     .attraction-detail-content {
         font-size: 0.9375rem;
-        
+
         h2 {
             font-size: 1.375rem;
         }
-        
+
         h3 {
             font-size: 1.125rem;
         }
     }
-    
+
     .attraction-detail-image {
         border-radius: 8px;
         margin-bottom: 2rem;
     }
-    
+
     .attraction-detail-features {
         margin-top: 2rem;
         padding-top: 2rem;
@@ -3925,6 +4020,7 @@ html {
         opacity: 0;
         transform: translateY(30px);
     }
+
     to {
         opacity: 1;
         transform: translateY(0);
@@ -3955,7 +4051,7 @@ html {
     color: $gold;
     line-height: 1;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
-    
+
     @media (max-width: 768px) {
         font-size: 100px;
     }
@@ -3966,7 +4062,7 @@ html {
     font-weight: 600;
     margin-bottom: 20px;
     color: $white;
-    
+
     @media (max-width: 768px) {
         font-size: 28px;
     }
@@ -3977,7 +4073,7 @@ html {
     margin-bottom: 40px;
     color: rgba(255, 255, 255, 0.8);
     line-height: 1.6;
-    
+
     @media (max-width: 768px) {
         font-size: 16px;
     }
@@ -4003,7 +4099,7 @@ html {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    
+
     &:hover {
         background: darken($gold, 10%);
         transform: translateY(-2px);
@@ -4011,11 +4107,11 @@ html {
         color: $dark-grey;
         text-decoration: none;
     }
-    
+
     i {
         margin-right: 8px;
     }
-    
+
     @media (max-width: 768px) {
         padding: 12px 30px;
         font-size: 14px;
@@ -4035,7 +4131,7 @@ html {
     transition: all 0.3s ease;
     text-transform: uppercase;
     letter-spacing: 1px;
-    
+
     &:hover {
         background: $gold;
         color: $dark-grey;
@@ -4043,11 +4139,11 @@ html {
         box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         text-decoration: none;
     }
-    
+
     i {
         margin-right: 8px;
     }
-    
+
     @media (max-width: 768px) {
         padding: 12px 30px;
         font-size: 14px;
@@ -4058,12 +4154,12 @@ html {
     margin-top: 60px;
     padding-top: 40px;
     border-top: 1px solid rgba(255, 255, 255, 0.1);
-    
+
     h3 {
         font-size: 24px;
         margin-bottom: 30px;
         color: $gold;
-        
+
         @media (max-width: 768px) {
             font-size: 20px;
         }
@@ -4075,24 +4171,24 @@ html {
     gap: 30px;
     justify-content: center;
     flex-wrap: wrap;
-    
+
     a {
         color: rgba(255, 255, 255, 0.8);
         text-decoration: none;
         font-size: 16px;
         transition: color 0.3s ease;
         padding: 10px 20px;
-        
+
         &:hover {
             color: $gold;
             text-decoration: none;
         }
-        
+
         i {
             margin-right: 8px;
             color: $gold;
         }
-        
+
         @media (max-width: 768px) {
             font-size: 14px;
             padding: 8px 15px;

@@ -2,10 +2,12 @@
 $dark-grey: #3d3d3d;
 $dark-grey-hover: #3a3a3a;
 $gold: #eac26c;
-$gold-hover: #e6c659;
+$gold-hover: #daaf21;
 $white: #ffffff;
 $light-grey: #f5f5f5;
 $text-dark: #2c2c2c;
+$text-gold: #eac26c;
+$text-gold-hover: #daaf21;
 $text-light: #888888;
 $text-white: #ffffff;
 
@@ -15,9 +17,9 @@ $shadow-lg: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 
 
 // Fonts
 $font-heading: 'Cinzel', serif;
-$font-serif: 'Georgia', 'Times New Roman', serif;
-$font-sans: 'Arial', sans-serif;
-$font-primary: $font-serif, $font-sans;
+$font-serif: 'Roboto', serif;
+$font-sans: 'Roboto', sans-serif;
+$font-primary: 'Roboto', sans-serif;
 
 // Spacing
 $spacing-xs: 0.5rem;

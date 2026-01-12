@@ -44,35 +44,17 @@
     <link rel="apple-touch-icon" href="images/logo.png">
 </head>
 <body>
-    <!-- Top Bar (Utility Header) -->
+                <!-- Top Bar (Utility Header) -->
     <div class="top-bar">
         <div class="container">
             <div class="row align-items-center">
-                <div class="col-lg-6 col-md-12">
+                <div class="col-lg-12 col-md-12">
                     <div class="top-bar-left">
                         <span class="top-bar-logo">Agava Nova Resort - Ośrodek wypoczynkowy w Przełazach</span>
                     </div>
-                </div>
-                <div class="col-lg-6 col-md-12">
-                    <div class="top-bar-right">
-                        <div class="top-bar-item">
-                            <i class="fas fa-envelope gold-icon"></i>
-                            <span>email@agavanova.pl</span>
-                        </div>
-                        <div class="top-bar-item">
-                            <i class="fas fa-phone gold-icon"></i>
-                            <span>tel: 000-100-200</span>
-                        </div>
-                        <div class="top-bar-item">
-                            <i class="fas fa-clock gold-icon"></i>
-                            <span>Godziny otwarcia: 9-17</span>
-                        </div>
-                        <div class="top-bar-social">
+                    <div class="top-bar-social">
                             <a href="#" class="social-icon" aria-label="Facebook">
                                 <i class="fab fa-facebook-f"></i>
-                            </a>
-                            <a href="#" class="social-icon" aria-label="X (Twitter)">
-                                <i class="fab fa-x-twitter"></i>
                             </a>
                             <a href="#" class="social-icon" aria-label="YouTube">
                                 <i class="fab fa-youtube"></i>
@@ -80,65 +62,80 @@
                             <a href="#" class="social-icon" aria-label="Instagram">
                                 <i class="fab fa-instagram"></i>
                             </a>
+                    </div>
+                    <div class="top-bar-right">
+                        <div class="top-bar-item">
+                            <i class="fas fa-envelope gold-icon"></i>
+                            <span><a href="mailto:email@agavanovaresort.pl">email@agavanovaresort.pl</a></span>
+                        </div>
+                        <div class="top-bar-item">
+                            <i class="fas fa-phone gold-icon"></i>
+                            <span><a href="tel:+48600100200">tel: +48 600 100 200</a></span>
+                        </div>
+                        <div class="top-bar-item">
+                            <i class="fas fa-clock gold-icon"></i>
+                            <span>Godziny otwarcia: 9-17</span>
                         </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
+            </div>
+        </div>
+    </div>
 
-    <!-- Main Header (Navigation Bar) -->
+                <!-- Main Header (Navigation Bar) -->
     <header class="header">
         <nav class="navbar">
             <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-lg-2 col-md-6 col-sm-6">
-                        <div class="logo">
-                            <a href="index.html">
-                                <img src="images/logo.png" alt="AGAVA NOVA RESORT" class="logo-image" width="150" height="auto">
+                <div class="navbar-container">
+                    <div class="logo">
+                        <img src="images/logo.png" alt="AGAVA NOVA RESORT" class="logo-image" width="150" height="auto">
+                    </div>
+                    <ul class="nav-menu" id="navMenu">
+                        <li><a href="index.html" class="nav-link">Start</a></li>
+                        <li><a href="onas.html" class="nav-link">O nas</a></li>
+                        <li class="dropdown">
+                            <a href="oferta.html" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">
+                                Oferta
+                                <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <polyline points="6 9 12 15 18 9" />
+                                </svg>
                             </a>
+                            <ul class="dropdown-menu">
+                                                                <li><a class="dropdown-item" href="zakwaterowanie.html">Zakwaterowanie</a></li>
+                                <li><a class="dropdown-item" href="restauracja.html">Restauracja</a></li>
+                                <li><a class="dropdown-item" href="spa.html">SPA & Wellness</a></li>
+                                <li><a class="dropdown-item active" href="atrakcje.html" style="background-color: rgba(212, 175, 55, 0.1); color: var(--gold);">Atrakcje</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="galeria.html" class="nav-link">Galeria</a></li>
+                        <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
+                    </ul>
+                    <div class="d-flex align-items-center justify-content-end gap-3">
+                        <div class="phone-call d-none d-md-flex">
+                            <div class="phone-icon">
+                                <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                                    <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z" />
+                                </svg>
+                            </div>
+                            <span class="phone-number">+48 600 100 200</span>
                         </div>
-                    </div>
-                    <div class="col-lg-8 col-md-6 col-sm-12">
-                        <ul class="nav-menu" id="navMenu">
-                            <li><a href="index.html" class="nav-link">Start</a></li>
-                            <li><a href="onas.html" class="nav-link">O nas</a></li>
-                            <li class="dropdown">
-                                <a href="oferta.html" class="nav-link dropdown-toggle active" data-bs-toggle="dropdown" aria-expanded="false">
-                                    Oferta
-                                    <svg class="dropdown-arrow" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <polyline points="6 9 12 15 18 9"/>
-                                    </svg>
-                                </a>
-                                <ul class="dropdown-menu">
-                                    <li><a class="dropdown-item" href="zakwaterowanie.html">Zakwaterowanie</a></li>
-                                    <li><a class="dropdown-item" href="restauracja.html">Restauracja</a></li>
-                                    <li><a class="dropdown-item" href="spa.html">SPA & Wellness</a></li>
-                                    <li><a class="dropdown-item active" href="atrakcje.html" style="background-color: rgba(212, 175, 55, 0.1); color: var(--gold);">Atrakcje</a></li>
-                                </ul>
-                            </li>
-                            <li><a href="galeria.html" class="nav-link">Galeria</a></li>
-                            <li><a href="kontakt.html" class="nav-link">Kontakt</a></li>
-                        </ul>
-                    </div>
-                    <div class="col-lg-2 col-md-6 col-sm-12">
-                        <div class="d-flex align-items-center justify-content-end gap-3">
-                            <div class="phone-call d-none d-md-flex">
-                                <div class="phone-icon">
-                                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
-                                        <path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"/>
-                                    </svg>
-                                </div>
-                                <span class="phone-number">000 100 200</span>
-                            </div>
-                            <div class="hamburger d-lg-none" id="hamburger">
-                                <span></span>
-                                <span></span>
-                                <span></span>
-                            </div>
+                        <div class="hamburger d-lg-none" id="hamburger">
+                            <span></span>
+                            <span></span>
+                            <span></span>
                         </div>
                     </div>
                 </div>
+            </div>
             </div>
         </nav>
     </header>
