@@ -83,6 +83,8 @@ h4,
 h5,
 h6 {
     font-family: $font-heading;
+    font-weight: 400;
+    letter-spacing: 0.5px;
 }
 
 .d-flex {
@@ -483,7 +485,6 @@ h6 {
 /* Section Styles - Basic styles for future sections */
 .section-title {
     font-size: 2.5rem;
-    font-weight: 700;
     text-align: center;
     color: var(--dark-color);
     margin-bottom: 3rem;
@@ -970,7 +971,6 @@ textarea.form-control {
 
 .hero-title {
     font-size: 4rem;
-    font-weight: 700;
     color: $white;
     font-family: $font-heading;
     text-transform: uppercase;
@@ -988,7 +988,6 @@ textarea.form-control {
 
 .hero-subtitle {
     font-size: 2.5rem;
-    font-weight: 700;
     color: $gold;
     font-family: $font-sans;
     text-transform: uppercase;
@@ -1243,7 +1242,6 @@ textarea.form-control {
 
 .about-title {
     font-size: 3rem;
-    font-weight: 700;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 2rem;
@@ -1589,7 +1587,6 @@ textarea.form-control {
 
 .holiday-homes-title {
     font-size: 3.5rem;
-    font-weight: 700;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 1rem;
@@ -1670,7 +1667,6 @@ textarea.form-control {
 
 .holiday-homes-content-title {
     font-size: 2.5rem;
-    font-weight: 700;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 0.5rem;
@@ -1965,7 +1961,6 @@ textarea.form-control {
 
 .specifications-title {
     font-size: 3.5rem;
-    font-weight: 700;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 1rem;
@@ -2371,7 +2366,6 @@ textarea.form-control {
 
 .attractions-title {
     font-size: 3.5rem;
-    font-weight: 700;
     color: $white;
     font-family: $font-heading;
     margin-bottom: 1rem;
@@ -2434,7 +2428,6 @@ textarea.form-control {
 
 .attraction-card-title {
     font-size: 1.75rem;
-    font-weight: 700;
     color: $white;
     margin-bottom: 1rem;
     font-family: $font-heading;
@@ -2540,7 +2533,6 @@ textarea.form-control {
 
 .restaurant-title {
     font-size: 3.5rem;
-    font-weight: 700;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 1rem;
@@ -2642,13 +2634,13 @@ textarea.form-control {
 
 .restaurant-overlay {
     position: absolute;
-    bottom: 0;
-    left: 0;
+    top: 50%;
+    left: 10%;
     width: 100%;
     height: 100%;
     z-index: 2;
-    background: linear-gradient(to top, rgba(0, 0, 0, 0.3), transparent);
     pointer-events: none;
+    transform: translateY(-50%);
 }
 
 .overlay-content {
@@ -2677,10 +2669,10 @@ textarea.form-control {
 
 .overlay-title {
     font-size: 2rem;
-    font-weight: 700;
     color: $text-dark;
     font-family: $font-heading;
     margin-bottom: 1rem;
+    text-transform: uppercase;
 }
 
 .overlay-description {
@@ -2770,7 +2762,6 @@ textarea.form-control {
 
 .news-title {
     font-size: 3.5rem;
-    font-weight: 700;
     color: $white;
     font-family: $font-heading;
     margin-bottom: 1rem;
@@ -2783,7 +2774,7 @@ textarea.form-control {
     color: $gold;
     font-family: $font-sans;
     font-style: italic;
-    letter-spacing: 1px;
+    letter-spacing: 5px;
 }
 
 .news-slider {
@@ -2848,12 +2839,12 @@ textarea.form-control {
 }
 
 .news-card-title {
-    font-size: 2rem;
-    font-weight: 700;
+    font-size: 1.5rem;
     color: $white;
     margin-bottom: 1.5rem;
     font-family: $font-heading;
     line-height: 1.3;
+    text-transform: uppercase;
 }
 
 .news-features {
@@ -2903,7 +2894,7 @@ textarea.form-control {
 
     &:hover {
         background: $gold-hover;
-        color: $dark-grey;
+        color: $white;
         transform: translateX(5px);
 
         i {
@@ -2969,7 +2960,7 @@ textarea.form-control {
     background: $white;
     width: 100%;
     padding: 0;
-    height:425px;
+    height:250px;
     position: relative
 }
 
@@ -2983,7 +2974,7 @@ textarea.form-control {
     iframe {
         filter: grayscale(100%);
         position:absolute;
-        top:45%;
+        top:10%;
         left:auto;
         right:auto;
     }
@@ -3052,7 +3043,6 @@ textarea.form-control {
 
 .footer-title {
     font-size: 0.875rem;
-    font-weight: 600;
     color: $gold;
     margin-bottom: 1rem;
     text-transform: uppercase;
@@ -3175,6 +3165,7 @@ textarea.form-control {
 
     .overlay-title {
         font-size: 1.75rem;
+        text-transform: uppercase;
     }
 
     .overlay-description {
@@ -3585,7 +3576,6 @@ textarea.form-control {
     background: $gold;
     color: $dark-grey;
     font-size: 0.75rem;
-    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
@@ -3593,7 +3583,6 @@ textarea.form-control {
 
 .news-detail-title {
     font-size: 3rem;
-    font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
     font-family: $font-heading;
@@ -3656,7 +3645,6 @@ textarea.form-control {
 
 .features-title {
     font-size: 1.5rem;
-    font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
     font-family: $font-heading;
@@ -3708,7 +3696,6 @@ textarea.form-control {
 
 .widget-title {
     font-size: 1.5rem;
-    font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
     font-family: $font-heading;
@@ -3882,7 +3869,6 @@ textarea.form-control {
     background: $gold;
     color: $dark-grey;
     font-size: 0.75rem;
-    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 1px;
     margin-bottom: 1.5rem;
@@ -3891,7 +3877,6 @@ textarea.form-control {
 
 .attraction-detail-title {
     font-size: 3rem;
-    font-weight: 700;
     color: $dark-grey;
     margin-bottom: 1.5rem;
     font-family: $font-heading;
@@ -4103,7 +4088,6 @@ html {
 
 .error-title {
     font-size: 36px;
-    font-weight: 600;
     margin-bottom: 20px;
     color: $white;
 
