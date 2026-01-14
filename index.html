@@ -228,17 +228,15 @@
                     <h2 class="holiday-homes-title">DOMY WYPOCZYNKOWE</h2>
                     <p class="holiday-homes-subtitle">EKSKLUZYWNE DOMY MODUŁOWE NA SPRZEDAŻ</p>
                 </div>
-                <!-- Two Large Images Side by Side -->
-                <div class="row holiday-homes-images-row">
-                    <div class="col-lg-6 holiday-homes-image-col">
-                        <div class="holiday-homes-image-wrapper">
-                            <img src="https://picsum.photos/800/600?random=40" alt="Zewnętrzny widok domów" class="holiday-homes-image" loading="lazy">
-                        </div>
+                <!-- Two Large Images Overlapping -->
+                <div class="holiday-homes-images-wrapper">
+                    <!-- Main Large Image (Bottom Layer) -->
+                    <div class="holiday-homes-main-image">
+                        <img src="images/domy_wypoczynkowe_01.webp" alt="Zewnętrzny widok domów" class="holiday-homes-image" loading="lazy">
                     </div>
-                    <div class="col-lg-6 holiday-homes-image-col">
-                        <div class="holiday-homes-image-wrapper">
-                            <img src="https://picsum.photos/800/600?random=41" alt="Wnętrze domu" class="holiday-homes-image" loading="lazy">
-                        </div>
+                    <!-- Top-Right Small Image (Middle Layer) -->
+                    <div class="holiday-homes-overlay-image">
+                        <img src="images/domy_wypoczynkowe_02.webp" alt="Wnętrze domu" class="holiday-homes-image" loading="lazy">
                     </div>
                 </div>
                 <!-- Content Row: Text + Specifications -->
@@ -336,7 +334,7 @@
                         <div class="row specifications-content-row">
                             <div class="col-lg-6 specifications-text-column">
                                 <div class="specifications-description">
-                                    <p>The gracious entry foyer leads to an open kitchen with custom stained walnut cabinetry, granite countertops, and a built-in dining banquette (in select one bedroom homes).</p>
+                                    <p>Elegancki hall wejściowy prowadzi do otwartej kuchni z niestandardowymi meblami kuchennymi w kolorze orzecha włoskiego, blatami granitowymi i wbudowaną ławką jadalną (w wybranych apartamentach jednoosobowych).</p>
                                 </div>
                                 <div class="specifications-list">
                                     <div class="spec-item">
@@ -376,7 +374,7 @@
                         <div class="row specifications-content-row">
                             <div class="col-lg-6 specifications-text-column">
                                 <div class="specifications-description">
-                                    <p>The gracious entry foyer leads to an open kitchen with custom stained walnut cabinetry, granite countertops, and a built-in dining banquette. The living area features large windows and modern finishes.</p>
+                                    <p>Elegancki hall wejściowy prowadzi do otwartej kuchni z niestandardowymi meblami kuchennymi w kolorze orzecha włoskiego, blatami granitowymi i wbudowaną ławką jadalną. Strefa dzienna charakteryzuje się dużymi oknami i nowoczesnymi wykończeniami.</p>
                                 </div>
                                 <div class="specifications-list">
                                     <div class="spec-item">
@@ -416,7 +414,7 @@
                         <div class="row specifications-content-row">
                             <div class="col-lg-6 specifications-text-column">
                                 <div class="specifications-description">
-                                    <p>This ground floor unit with loft features a spacious layout with open-concept living and dining areas. The kitchen includes premium appliances and custom storage solutions.</p>
+                                    <p>Ten apartament na parterze z antresolą oferuje przestronny układ z otwartymi strefami dzienną i jadalną. Kuchnia wyposażona jest w wysokiej jakości urządzenia i niestandardowe rozwiązania magazynowe.</p>
                                 </div>
                                 <div class="specifications-list">
                                     <div class="spec-item">
@@ -456,7 +454,7 @@
                         <div class="row specifications-content-row">
                             <div class="col-lg-6 specifications-text-column">
                                 <div class="specifications-description">
-                                    <p>This upper floor unit with loft offers stunning views and elevated living spaces. The design maximizes natural light and provides flexible living arrangements with a modern aesthetic.</p>
+                                    <p>Ten apartament na wyższym piętrze z antresolą oferuje zapierające dech w piersiach widoki i podniesione przestrzenie życiowe. Projekt maksymalizuje światło naturalne i zapewnia elastyczne rozwiązania mieszkalne w nowoczesnym stylu.</p>
                                 </div>
                                 <div class="specifications-list">
                                     <div class="spec-item">
@@ -620,8 +618,8 @@
                             </button>
                         </li>
                         <li class="nav-item" role="presentation">
-                            <button class="nav-link" id="apartments-tab" data-bs-toggle="tab" data-bs-target="#apartments-content" type="button" role="tab" aria-controls="apartments-content" aria-selected="false">
-                                APARTAMENTY
+                            <button class="nav-link" id="menu-tab" data-bs-toggle="tab" data-bs-target="#menu-content" type="button" role="tab" aria-controls="menu-content" aria-selected="false">
+                                MENU
                             </button>
                         </li>
                     </ul>
@@ -632,14 +630,14 @@
                     <div class="restaurant-hero-image">
                         <img src="https://picsum.photos/id/14/2500/1667" alt="Restauracja" class="hero-bg-image active" data-tab="restaurant-content" loading="lazy">
                         <img src="https://picsum.photos/id/15/2500/1667" alt="Bar i Grill" class="hero-bg-image" data-tab="bar-grill-content" loading="lazy">
-                        <img src="https://picsum.photos/id/16/2500/1667" alt="Apartamenty" class="hero-bg-image" data-tab="apartments-content" loading="lazy">
+                        <img src="https://picsum.photos/id/16/2500/1667" alt="Menu" class="hero-bg-image" data-tab="menu-content" loading="lazy">
                     </div>
                     <!-- Overlay content that changes with tabs -->
                     <div class="restaurant-overlay">
                         <!-- Restaurant Tab Content -->
                         <div class="overlay-content active" id="overlay-restaurant-content">
                             <h3 class="overlay-title">Restauracja</h3>
-                            <p class="overlay-description">Within famous entrance are some of the top London restaurants and bars, we welcome guests for a inspiring culinary experience.</p>
+                            <p class="overlay-description">W tym słynnym wejściu znajdują się niektóre z najlepszych restauracji i barów w Londynie, witamy gości na inspirującym doświadczeniu kulinarycznym.</p>
                             <a href="#restauracja" class="overlay-link">ZOBACZ WIĘCEJ</a>
                         </div>
                         <!-- Bar & Grill Tab Content -->
@@ -648,11 +646,11 @@
                             <p class="overlay-description">Experience the finest selection of grilled specialties and premium beverages in our elegant bar and grill, where culinary excellence meets sophisticated ambiance.</p>
                             <a href="#bar-grill" class="overlay-link">ZOBACZ WIĘCEJ</a>
                         </div>
-                        <!-- Apartments Tab Content -->
-                        <div class="overlay-content" id="overlay-apartments-content">
-                            <h3 class="overlay-title">Apartamenty</h3>
-                            <p class="overlay-description">Luxury apartments with modern amenities and breathtaking views, designed for comfort and relaxation in the heart of the city.</p>
-                            <a href="#apartamenty" class="overlay-link">ZOBACZ WIĘCEJ</a>
+                        <!-- Menu Tab Content -->
+                        <div class="overlay-content" id="overlay-menu-content">
+                            <h3 class="overlay-title">Menu</h3>
+                            <p class="overlay-description">Luksusowe apartamenty z nowoczesnymi udogodnieniami i zapierającymi dech w piersiach widokami, zaprojektowane dla komfortu i relaksu w sercu miasta.</p>
+                            <a href="#menu" class="overlay-link">ZOBACZ WIĘCEJ</a>
                         </div>
                     </div>
                 </div>
@@ -686,11 +684,11 @@
                                     <ul class="news-features">
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Fresh Foods Guarantee</span>
+                                            <span>Gwarancja Świeżych Produktów</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>High-Quality Ingredients</span>
+                                            <span>Wysokiej Jakości Składniki</span>
                                         </li>
                                     </ul>
                                     <a href="news-restauracja.html" class="news-btn">
@@ -712,11 +710,11 @@
                                     <ul class="news-features">
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Luxury Spa Treatments</span>
+                                            <span>Luksusowe Zabiegi SPA</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Professional Therapists</span>
+                                            <span>Profesjonalni Terapeuci</span>
                                         </li>
                                     </ul>
                                     <a href="news-spa.html" class="news-btn">
@@ -738,11 +736,11 @@
                                     <ul class="news-features">
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Clean & Safe Environment</span>
+                                            <span>Czyste i Bezpieczne Środowisko</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Temperature-Controlled Pools</span>
+                                            <span>Baseny z Kontrolowaną Temperaturą</span>
                                         </li>
                                     </ul>
                                     <a href="news-atrakcje.html" class="news-btn">
@@ -764,11 +762,11 @@
                                     <ul class="news-features">
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Luxury Accommodation</span>
+                                            <span>Luksusowe Zakwaterowanie</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Premium Comfort</span>
+                                            <span>Premium Komfort</span>
                                         </li>
                                     </ul>
                                     <a href="news-zakwaterowanie.html" class="news-btn">
@@ -790,11 +788,11 @@
                                     <ul class="news-features">
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Modern Facilities</span>
+                                            <span>Nowoczesne Udogodnienia</span>
                                         </li>
                                         <li>
                                             <i class="fas fa-check"></i>
-                                            <span>Expert Trainers</span>
+                                            <span>Eksperci Trenerzy</span>
                                         </li>
                                     </ul>
                                     <a href="news-wellness.html" class="news-btn">
@@ -827,19 +825,19 @@
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-column">
                         <h4 class="footer-title">LOKALIZACJA</h4>
-                        <p class="footer-text">736 Blue Spring Ave. Smithtown,<br>NY 11787</p>
+                        <p class="footer-text">66-218 Przełazy 21,<br>Polska</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-column left-border">
                         <h4 class="footer-title">TELEFON</h4>
-                        <p class="footer-text">(+844) 1800 3377</p>
+                        <p class="footer-text">(+48) 600 100 200</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
                     <div class="footer-column left-border">
                         <h4 class="footer-title">REZERWACJE</h4>
-                        <p class="footer-text">(+844) 1800 3355<br>support@example.com</p>
+                        <p class="footer-text">(+48) 600 100 300<br>rezerwacje@agavanovaresort.pl</p>
                     </div>
                 </div>
                 <div class="col-lg-3 col-md-6 col-sm-12">
