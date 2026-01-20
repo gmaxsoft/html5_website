@@ -6,4 +6,8 @@ dist/
 .idea/
 .vscode/
 
+# Large video files
+*.mp4
+src/img/slider/*.mp4
+
 
