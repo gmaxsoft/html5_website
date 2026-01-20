@@ -7,7 +7,8 @@
     "build": "webpack --mode production",
     "dev": "webpack serve --mode development --open --hot",
     "start": "webpack serve --mode development",
-    "watch": "webpack --watch --mode development"
+    "watch": "webpack --watch --mode development",
+    "serve": "node server.js"
   },
   "keywords": [
     "resort",
@@ -19,6 +20,7 @@
   "dependencies": {
     "@fortawesome/fontawesome-free": "^6.5.1",
     "bootstrap": "^5.3.8",
+    "express": "^4.22.1",
     "swiper": "^12.0.3"
   },
   "devDependencies": {

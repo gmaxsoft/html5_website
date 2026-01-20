@@ -46,20 +46,24 @@ module.exports = {
       directory: path.join(__dirname, 'dist'),
     },
     compress: true,
-    port: 9000,
+    port: 8080,
     hot: true,
     open: true,
-    historyApiFallback: {
-      // Przekieruj nieistniejące strony na 404.html
-      // Webpack Dev Server automatycznie obsługuje istniejące pliki HTML z HtmlWebpackPlugin
-      // Dla nieistniejących ścieżek przekieruj na 404.html
-      // Uwaga: To działa tylko dla nieistniejących ścieżek - istniejące pliki HTML są obsługiwane automatycznie
-      index: 'index.html',
-      rewrites: [
-        // Przekieruj wszystkie nieistniejące ścieżki (które nie są plikami statycznymi) na 404.html
-        // Pliki statyczne (obrazy, CSS, JS, fonty) mają rozszerzenia i nie są przekierowywane
-        { from: /^(?!.*\.).*$/, to: '/404.html' }
-      ]
+    historyApiFallback: true,
+    setupMiddlewares: (middlewares, devServer) => {
+      // Middleware do obsługi błędów 404
+      middlewares.push({
+        name: 'handle-404',
+        path: '/',
+        middleware: (req, res, next) => {
+          // Jeśli plik nie istnieje i nie jest zasobem statycznym, podaj 404.html
+          if (!req.path.includes('.') && req.method === 'GET') {
+            return res.sendFile(path.join(__dirname, 'dist', '404.html'));
+          }
+          next();
+        },
+      });
+      return middlewares;
     },
     // Wycisz warningi w dev server
     client: {
