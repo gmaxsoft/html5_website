@@ -9,6 +9,10 @@ ErrorDocument 404 /404.html
     RewriteEngine On
     RewriteBase /
 
+    # Don't interfere with video file requests - must be first
+    RewriteCond %{REQUEST_URI} \.(mp4|webm|ogg)$ [NC]
+    RewriteRule ^ - [L]
+
     # Don't rewrite the 404.html file itself
     RewriteCond %{REQUEST_URI} !^/404\.html$ [NC]
     
@@ -31,9 +35,30 @@ ErrorDocument 404 /404.html
     ExpiresByType image/png "access plus 1 year"
     ExpiresByType image/gif "access plus 1 year"
     ExpiresByType image/svg+xml "access plus 1 year"
+    ExpiresByType image/webp "access plus 1 year"
     ExpiresByType text/css "access plus 1 month"
     ExpiresByType application/javascript "access plus 1 month"
     ExpiresByType font/woff "access plus 1 year"
     ExpiresByType font/woff2 "access plus 1 year"
+    ExpiresByType video/mp4 "access plus 1 month"
+    ExpiresByType video/webm "access plus 1 month"
+</IfModule>
+
+# Headers for Video Files
+<IfModule mod_headers.c>
+    # Enable Range Requests for Video Files (required for video streaming)
+    <FilesMatch "\.(mp4|webm|ogg)$">
+        Header set Accept-Ranges bytes
+        Header set Content-Type "video/mp4"
+        # Remove any restrictive headers that might cause 412
+        Header unset If-Match
+        Header unset If-None-Match
+        Header unset If-Modified-Since
+        Header unset If-Unmodified-Since
+        # Allow CORS if needed
+        Header set Access-Control-Allow-Origin "*"
+        Header set Access-Control-Allow-Methods "GET, HEAD, OPTIONS"
+        Header set Access-Control-Allow-Headers "Range"
+    </FilesMatch>
 </IfModule>
 

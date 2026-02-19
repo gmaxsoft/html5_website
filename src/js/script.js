@@ -550,3 +550,10 @@ function createScrollTopButton() {
 // Initialize scroll-to-top button
 createScrollTopButton();
 
+// Initialize parallax with @maxsoft/super-parallax
+document.addEventListener('DOMContentLoaded', () => {
+    const prlx = new Parallax({
+        speed: 0.3
+    });
+});
+

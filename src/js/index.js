@@ -1,6 +1,7 @@
 // Import Bootstrap JavaScript components
 import Tab from 'bootstrap/js/dist/tab';
 import Dropdown from 'bootstrap/js/dist/dropdown';
+import Parallax from '@maxsoft/super-parallax';
 
 // Make Bootstrap available globally for data attributes
 window.bootstrap = {

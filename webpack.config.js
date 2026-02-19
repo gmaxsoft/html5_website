@@ -149,7 +149,7 @@ module.exports = {
         },
       },
       {
-        test: /\.(png|svg|jpg|jpeg|gif)$/i,
+        test: /\.(png|svg|jpg|jpeg|gif|webp)$/i,
         type: 'asset/resource',
         generator: {
           filename: 'images/[name].[contenthash][ext]',
@@ -158,6 +158,13 @@ module.exports = {
           dataUrlCondition: {
             maxSize: 8 * 1024, // 8kb - images smaller than 8kb will be inlined
           },
+        },
+      },
+      {
+        test: /\.(mp4|webm|ogg)$/i,
+        type: 'asset/resource',
+        generator: {
+          filename: 'images/[name][ext]',
         },
       },
       {
